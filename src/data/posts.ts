@@ -4,7 +4,7 @@ export const posts: Post[] = [
   {
     id: 1,
     title: "rthrwthswreh",
-    text: "sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8-xc53x5h,8-x558h08z88qh38qhz305853qz8,=8h0z,=8h0q,8hx5q,8h=z05q,8h5q3,h,ht,htq,htgqz,hztq,hiztgq,hitgqzeh,[igqze,h[igqze,hi[gqze,higqzz.iz/i",
+    text: "sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8sthsrthrsthrsthrshrshrshrsyjsrtyjrjsjsrjrsjrsjrsjrsjrsjrsjrsqgethiq3e8gc5v8-xc53x5h,8-x558h08z88qh38qhz305853qz8,=8h0z,=8h0q,8hx5q,8h=z05q,8h5q3,h,ht,htq,htgqz,hztq,hiztgq,hitgqzeh,[igqze,h[igqze,hi[gqze,higqzz.iz/i",
     image_url: null,
     updatedAt: "2024-08-09T12:43:31.381Z",
     user: {

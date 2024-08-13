@@ -2,7 +2,6 @@
   width: 80%;
   min-width: 450px;
   margin: 5%;
-
   box-shadow: 0 2px 4px rgba(0, 0, 0, 10);
   transition: transform 0.2s ease;
 }
@@ -48,6 +47,18 @@
   font-size: 100%;
   word-break: break-all;
   color: rgba(156, 171, 186, 1);
+}
+
+.card__text--hidden {
+  font-size: 100%;
+  word-break: break-all;
+  color: rgba(156, 171, 186, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
 }
 
 .card__tags {
