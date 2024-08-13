@@ -1,0 +1,8 @@
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Позволяет размещать карточки в несколько рядов */
+  justify-content: space-between; /* Пространство между карточками */
+  gap: 20px; /* Промежуток между карточками */
+  padding: 20px;
+}

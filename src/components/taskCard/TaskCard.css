@@ -1,0 +1,56 @@
+.card {
+  width: 80%;
+  min-width: 450px;
+  margin: 5%;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 10);
+  transition: transform 0.2s ease;
+}
+
+.card__main {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card .card__texts {
+  margin: 0 10%;
+  font-size: 100%;
+}
+
+.card__image {
+  width: 100%;
+  min-width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.card__author,
+.card__date {
+  font-size: 1em;
+  color: rgba(156, 171, 186, 1);
+}
+
+.card__author {
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.card__title {
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 1);
+}
+
+.card__text {
+  font-size: 100%;
+  word-break: break-all;
+  color: rgba(156, 171, 186, 1);
+}
+
+.card__tags {
+  color: rgba(156, 171, 186, 1);
+  margin: 1%;
+}

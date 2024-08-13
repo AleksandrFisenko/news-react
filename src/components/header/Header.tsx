@@ -1,10 +1,16 @@
-import './header.css'
+import "./Header.css";
 
 export default function Header() {
   return (
     <header className="header">
-      <img src="./src/assets/ibs.png" alt="Company Logo" className="logo" />
-      
+      <div className="header__first-container">
+        <img
+          src="./src/images/cat.svg"
+          alt="Website Logo"
+          className="header__logo"
+        />
+        <p className="header__title">NEWS</p>
+      </div>
     </header>
-  )
+  );
 }
