@@ -5,6 +5,7 @@ import classes from "./TaskCard.module.css";
 interface PostProps {
   image_url: string | null;
   email: string;
+  avatar_url: string | null;
   updatedAt: string;
   title: string;
   text: string;
@@ -14,6 +15,7 @@ interface PostProps {
 export default function TaskCard({
   image_url,
   email,
+  avatar_url,
   updatedAt,
   title,
   text,
@@ -27,7 +29,7 @@ export default function TaskCard({
 
   const cardTextClasses = details
     ? classes.card__text
-    : (classes.card__text + ' ' + classes.card__text_hidden);
+    : classes.card__text + " " + classes.card__text_hidden;
 
   return (
     <div className={classes.card}>
@@ -38,7 +40,14 @@ export default function TaskCard({
           className={classes.card__image}
         />
         <div className={classes.card__texts}>
-          <p className={classes.card__author}>{email}</p>
+          <div className={classes.card__author}>
+            <img
+              src={avatar_url !== null ? avatar_url : "./src/images/avatar.png"}
+              alt="Default Avatar"
+              className={classes.card__avatar}
+            />
+            <p className={classes.card__email}>{email}</p>
+          </div>
           <p className={classes.card__date}>{updatedAt} </p>
           <p className={classes.card__title}>{title}</p>
           <p className={cardTextClasses} onClick={changeDetails}>

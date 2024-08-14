@@ -15,6 +15,7 @@ export default function TaskList({ posts }: PostsProps) {
             key={post.id}
             image_url={post.image_url}
             email={post.user.email}
+            avatar_url={post.user.avatar_url}
             updatedAt={post.updatedAt}
             title={post.title}
             text={post.text}

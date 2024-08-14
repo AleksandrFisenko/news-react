@@ -11,6 +11,7 @@ export interface Post {
 export interface User {
   id: number;
   email: string;
+  avatar_url: string | null;
 }
 
 export interface Tag {
