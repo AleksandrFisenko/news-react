@@ -1,16 +1,18 @@
-import "./Header.css";
+import classes from "./Header.module.css";
 
-export default function Header() {
+const Header = () => {
   return (
-    <header className="header">
-      <div className="header__first-container">
+    <header className={classes.header}>
+      <div className={classes.header__firstContainer}>
         <img
           src="./src/images/cat.svg"
           alt="Website Logo"
-          className="header__logo"
+          className={classes.header__logo}
         />
-        <p className="header__title">NEWS</p>
+        <p className={classes.header__title}>NEWS</p>
       </div>
     </header>
   );
-}
+};
+
+export default Header;

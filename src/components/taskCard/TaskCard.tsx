@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Tag } from "../../models";
-import "./TaskCard.css";
+import { Tag } from "../../types/types";
+import classes from "./TaskCard.module.css";
 
 interface PostProps {
   image_url: string | null;
-  login: string;
+  email: string;
   updatedAt: string;
   title: string;
   text: string;
@@ -13,7 +13,7 @@ interface PostProps {
 
 export default function TaskCard({
   image_url,
-  login,
+  email,
   updatedAt,
   title,
   text,
@@ -21,31 +21,32 @@ export default function TaskCard({
 }: PostProps) {
   const [details, setDetails] = useState(false);
 
+  const changeDetails = () => {
+    setDetails((prevDetails) => !prevDetails);
+  };
+
   const cardTextClasses = details
-    ? "card__text"
-    : "card__text card__text--hidden";
+    ? classes.card__text
+    : (classes.card__text + ' ' + classes.card__text_hidden);
 
   return (
-    <div className="card-container__card card">
-      <div className="card__main">
+    <div className={classes.card}>
+      <div className={classes.card__main}>
         <img
           src={image_url !== null ? image_url : "./src/images/ibs.png"}
           alt="Website Logo"
-          className="card__image"
+          className={classes.card__image}
         />
-        <div className="card__texts">
-          <p className="card__author">{login}</p>
-          <p className="card__date">{updatedAt} </p>
-          <p className="card__title">{title}</p>
-          <p
-            className={cardTextClasses}
-            onClick={() => setDetails((prev) => !prev)}
-          >
+        <div className={classes.card__texts}>
+          <p className={classes.card__author}>{email}</p>
+          <p className={classes.card__date}>{updatedAt} </p>
+          <p className={classes.card__title}>{title}</p>
+          <p className={cardTextClasses} onClick={changeDetails}>
             {text}
           </p>
         </div>
       </div>
-      <div className="card__tags">
+      <div className={classes.card__tags}>
         <span>Tags: </span>
         {tags.map((tag, index, arr) => {
           return (

@@ -1,6 +1,6 @@
 import TaskCard from "../../components/taskCard/TaskCard";
-import { Post } from "../../models";
-import "./TaskList.css";
+import { Post } from "../../types/types";
+import classes from "./TaskList.module.css";
 
 interface PostsProps {
   posts: Post[];
@@ -8,13 +8,13 @@ interface PostsProps {
 
 export default function TaskList({ posts }: PostsProps) {
   return (
-    <div className="card-container">
+    <div className={classes.cardContainer}>
       {posts.map((post) => {
         return (
           <TaskCard
             key={post.id}
             image_url={post.image_url}
-            login={post.user.login}
+            email={post.user.email}
             updatedAt={post.updatedAt}
             title={post.title}
             text={post.text}

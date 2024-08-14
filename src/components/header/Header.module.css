@@ -6,7 +6,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 10);
 }
 
-.header__first-container {
+.header__firstContainer {
   display: flex;
   align-items: center;
 }

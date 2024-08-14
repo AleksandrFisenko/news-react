@@ -49,7 +49,7 @@
   color: rgba(156, 171, 186, 1);
 }
 
-.card__text--hidden {
+.card__text_hidden {
   font-size: 100%;
   word-break: break-all;
   color: rgba(156, 171, 186, 1);
