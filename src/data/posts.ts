@@ -47,7 +47,7 @@ export const posts: Post[] = [
   {
     id: 3,
     title: "srtjrjsrjrstjrstj",
-    text: "stjrswtjrsjjrtsjrsjrsjrsjrsj",
+    text: "stjrswtjrsjjrtsjrsjrsjrsjrsj111111",
     image_url: null,
     updatedAt: "2024-08-09T12:43:31.381Z",
     user: {

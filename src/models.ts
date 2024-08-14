@@ -8,12 +8,12 @@ export interface Post {
   tags: Tag[];
 }
 
-interface User {
+export interface User {
   id: number;
   login: string;
 }
 
-interface Tag {
+export interface Tag {
   id: number;
   name: string;
 }
