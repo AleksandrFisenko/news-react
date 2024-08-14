@@ -1,9 +1,11 @@
 import MainPage from "./pages/mainPage/MainPage";
 
-export default function App() {
+const App = () => {
   return (
     <>
       <MainPage />
     </>
   );
-}
+};
+
+export default App;

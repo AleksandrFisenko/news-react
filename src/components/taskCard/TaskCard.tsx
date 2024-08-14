@@ -12,7 +12,7 @@ interface PostProps {
   tags: Tag[];
 }
 
-export default function TaskCard({
+const TaskCard = ({
   image_url,
   email,
   avatar_url,
@@ -20,7 +20,7 @@ export default function TaskCard({
   title,
   text,
   tags,
-}: PostProps) {
+}: PostProps) => {
   const [details, setDetails] = useState(false);
 
   const changeDetails = () => {
@@ -67,4 +67,6 @@ export default function TaskCard({
       </div>
     </div>
   );
-}
+};
+
+export default TaskCard;

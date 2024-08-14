@@ -1,9 +1,7 @@
 import classes from "./Error.module.css";
 
-export default function MainPage() {
-  return (
-    <>
+const MainPage = () => {
+  return <></>;
+};
 
-    </>
-  );
-}
+export default MainPage;

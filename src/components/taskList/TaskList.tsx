@@ -6,7 +6,7 @@ interface PostsProps {
   posts: Post[];
 }
 
-export default function TaskList({ posts }: PostsProps) {
+const TaskList = ({ posts }: PostsProps) => {
   return (
     <div className={classes.cardContainer}>
       {posts.map((post) => {
@@ -25,4 +25,6 @@ export default function TaskList({ posts }: PostsProps) {
       })}
     </div>
   );
-}
+};
+
+export default TaskList;
