@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AxiosError } from "axios";
 
-import { Post } from "../types/types";
+import { Post } from "../../types/types"; 
 
 import instance from "./axios";
 
