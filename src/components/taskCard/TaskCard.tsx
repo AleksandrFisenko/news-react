@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import { Tag } from "../../types/types";
+
 import classes from "./TaskCard.module.css";
 
 interface PostProps {

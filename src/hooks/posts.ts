@@ -5,7 +5,7 @@ import axios, { AxiosError } from "axios";
 export function usePosts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
 
   const fetchPosts = async () => {
     try {
@@ -18,7 +18,6 @@ export function usePosts() {
       const error = e as AxiosError;
       setLoading(false);
       setError(error.message);
-      console.log(error);
     }
   };
 

@@ -1,6 +1,7 @@
 import Header from "../../components/header/Header";
 import TaskList from "../../components/taskList/TaskList";
 import Loading from "../../components/loading/Loading";
+import Error from "../../components/error/Error";
 import { usePosts } from "../../hooks/posts";
 
 const MainPage = () => {
@@ -10,6 +11,7 @@ const MainPage = () => {
     <>
       <Header />
       {loading && <Loading />}
+      {error && <Error message={error} />}
       <TaskList posts={posts} />
     </>
   );

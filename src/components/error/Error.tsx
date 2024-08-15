@@ -1,7 +1,15 @@
 import classes from "./Error.module.css";
 
-const MainPage = () => {
-  return <></>;
+interface ErrorProps {
+  message: string;
+}
+
+const Error = ({ message }: ErrorProps) => {
+  return (
+    <>
+      <p className={classes.message}>{message}</p>
+    </>
+  );
 };
 
-export default MainPage;
+export default Error;

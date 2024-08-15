@@ -1,5 +1,6 @@
 import TaskCard from "../../components/taskCard/TaskCard";
 import { Post } from "../../types/types";
+
 import classes from "./TaskList.module.css";
 
 interface PostsProps {
