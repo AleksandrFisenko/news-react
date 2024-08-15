@@ -1,8 +1,8 @@
 import Header from "../../components/header/Header";
-import TaskList from "../../components/taskList/TaskList";
+import PostList from "../../components/postList/PostList";
 import Loading from "../../components/loading/Loading";
 import Error from "../../components/error/Error";
-import { usePosts } from "../../hooks/getPosts";
+import { usePosts } from "../../api/getPosts";
 
 const MainPage = () => {
   const { posts, loading, error } = usePosts();
@@ -12,7 +12,7 @@ const MainPage = () => {
       <Header />
       {loading && <Loading />}
       {error && <Error message={error} />}
-      <TaskList posts={posts} />
+      <PostList posts={posts} />
     </>
   );
 };

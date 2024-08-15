@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Tag } from "../../types/types";
 
-import classes from "./TaskCard.module.css";
+import classes from "./PostCard.module.css";
 
 interface PostProps {
   image_url: string | null;
@@ -14,7 +14,7 @@ interface PostProps {
   tags: Tag[];
 }
 
-const TaskCard = ({
+const PostCard = ({
   image_url,
   email,
   avatar_url,
@@ -71,4 +71,4 @@ const TaskCard = ({
   );
 };
 
-export default TaskCard;
+export default PostCard;

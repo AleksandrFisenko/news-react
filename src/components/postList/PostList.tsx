@@ -1,4 +1,4 @@
-import TaskCard from "../../components/taskCard/TaskCard";
+import PostCard from "../postCard/PostCard";
 import { Post } from "../../types/types";
 
 import classes from "./TaskList.module.css";
@@ -7,12 +7,12 @@ interface PostsProps {
   posts: Post[];
 }
 
-const TaskList = ({ posts }: PostsProps) => {
+const PostList = ({ posts }: PostsProps) => {
   return (
     <div className={classes.cardContainer}>
       {posts.map((post) => {
         return (
-          <TaskCard
+          <PostCard
             key={post.id}
             image_url={post.image_url}
             email={post.user.email}
@@ -28,4 +28,4 @@ const TaskList = ({ posts }: PostsProps) => {
   );
 };
 
-export default TaskList;
+export default PostList;
