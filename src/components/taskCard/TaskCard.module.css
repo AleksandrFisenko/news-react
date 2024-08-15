@@ -8,7 +8,7 @@
 
 .card__main {
   display: grid;
-  grid-template-columns: 0.2fr 1fr;
+  grid-template-columns: 0.4fr 1fr;
 }
 
 .card:hover {

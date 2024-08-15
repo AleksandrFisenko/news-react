@@ -2,7 +2,7 @@ import Header from "../../components/header/Header";
 import TaskList from "../../components/taskList/TaskList";
 import Loading from "../../components/loading/Loading";
 import Error from "../../components/error/Error";
-import { usePosts } from "../../hooks/posts";
+import { usePosts } from "../../hooks/getPosts";
 
 const MainPage = () => {
   const { posts, loading, error } = usePosts();

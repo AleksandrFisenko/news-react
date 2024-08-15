@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { AxiosError } from "axios";
+
 import { Post } from "../types/types";
-import axios, { AxiosError } from "axios";
+
+import instance from "./axios";
 
 export function usePosts() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -11,7 +14,7 @@ export function usePosts() {
     try {
       setError("");
       setLoading(true);
-      const response = await axios.get<Post[]>("http://localhost:8080/posts");//env
+      const response = await instance.get<Post[]>("posts"); //env
       setPosts(response.data);
       setLoading(false);
     } catch (e: unknown) {
