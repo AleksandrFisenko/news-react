@@ -4,13 +4,25 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(18, 20, 23, 1);
-  background-color: #242424;
+  background-color: rgba(36, 36, 36, 1);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --error-text-color: rgba(179, 12, 12, 1);
+
+  --header-shadow-color: rgba(0, 0, 0, 1);
+  --header-title-color: rgba(255, 255, 255, 1);
+
+  --loading-zzz-color: rgba(0, 0, 0, 1);
+  --loading-bigzzz-color: rgba(0, 0, 0, 1);
+  --loading-transparent-color: rgba(255, 255, 255, 0);
+
+  --card-shadow-color: rgba(0, 0, 0, 1);
+  --card-title-color: rgba(255, 255, 255, 1);
+  --card-text-color: rgba(156, 171, 186, 1);
 }
 
 body {

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 10);
+  box-shadow: 0 2px 4px var(--header-shadow-color);
 }
 
 .header__firstContainer {
@@ -20,6 +20,6 @@
 .header__title {
   font-size: 24px;
   font-weight: bold;
-  color: rgba(255, 255, 255, 1);
+  color: var(--header-title-color);
   margin: 0;
 }

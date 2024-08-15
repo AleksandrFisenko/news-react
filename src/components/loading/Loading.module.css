@@ -63,14 +63,14 @@
 }
 
 .zzz {
-  color: black;
+  color: var(--loading-zzz-color);
   font-weight: 700;
   font-size: 15px;
   animation: zzz 2s linear infinite;
 }
 
 .bigzzz {
-  color: black;
+  color: var(--loading-bigzzz-color);
   font-weight: 700;
   font-size: 25px;
   margin-left: 10px;
@@ -79,14 +79,14 @@
 
 @keyframes zzz {
   0% {
-    color: transparent;
+    color: var(--loading-transparent-color);
   }
 
   50% {
-    color: black;
+    color: var(--loading-zzz-color);
   }
 
   100% {
-    color: transparent;
+    color: var(--loading-transparent-color);
   }
 }

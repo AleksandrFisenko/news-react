@@ -11,7 +11,7 @@ export function usePosts() {
     try {
       setError("");
       setLoading(true);
-      const response = await axios.get<Post[]>("http://localhost:8080/posts");
+      const response = await axios.get<Post[]>("http://localhost:8080/posts");//env
       setPosts(response.data);
       setLoading(false);
     } catch (e: unknown) {

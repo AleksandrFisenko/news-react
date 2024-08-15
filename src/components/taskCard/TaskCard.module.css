@@ -2,7 +2,7 @@
   width: 80%;
   min-width: 550px;
   margin: 5%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 10);
+  box-shadow: 0 2px 4px var(--card-shadow-color);
   transition: transform 0.2s ease;
 }
 
@@ -41,7 +41,7 @@
 .card__email,
 .card__date {
   font-size: 1em;
-  color: rgba(156, 171, 186, 1);
+  color: var(--card-text-color);
 }
 
 .card__avatar {
@@ -50,7 +50,7 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 100px;
-  box-shadow: 0 0 7px rgba(156, 171, 186, 1);
+  box-shadow: 0 0 7px var(--card-text-color);
 }
 
 .card__author {
@@ -60,19 +60,18 @@
 
 .card__title {
   font-size: 1.5em;
-  color: rgba(255, 255, 255, 1);
+  color: var(--card-title-color);
 }
 
 .card__text {
   font-size: 100%;
   word-break: break-all;
-  color: rgba(156, 171, 186, 1);
+  color: var(--card-text-color);
 }
 
 .card__text_hidden {
   font-size: 100%;
   word-break: break-all;
-  color: rgba(156, 171, 186, 1);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -82,6 +81,6 @@
 }
 
 .card__tags {
-  color: rgba(156, 171, 186, 1);
+  color: var(--card-text-color);
   margin: 1%;
 }
