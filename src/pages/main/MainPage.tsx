@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-import Header from "../../components/header/Header";
 import PostList from "../../components/postList/PostList";
 import Loading from "../../components/loading/Loading";
 import Error from "../../components/error/Error";
@@ -20,7 +19,6 @@ const MainPage = () => {
 
   return (
     <>
-      <Header />
       {isLoading && <Loading />}
       {error && <Error message={error} />}
       <PostList posts={posts} />
