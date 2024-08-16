@@ -1,5 +1,6 @@
-import PostCard from "../postCard/PostCard";
 import { Post } from "../../types/types";
+
+import PostCard from "../postCard/PostCard";
 
 import classes from "./PostList.module.css";
 

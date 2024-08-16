@@ -33,19 +33,23 @@ const PostCard = ({
     ? classes.card__text
     : classes.card__text + " " + classes.card__text_hidden;
 
+  const postImage = image_url !== null 
+  ? image_url 
+  : "./src/images/ibs.png";
+
+  const userAvatar = avatar_url !== null 
+  ? avatar_url 
+  : "./src/images/avatar.png";
+
   return (
     <div className={classes.card}>
       <div className={classes.card__main}>
-        <img
-          src={image_url !== null ? image_url : "./src/images/ibs.png"}
-          alt="Website Logo"
-          className={classes.card__image}
-        />
+        <img src={postImage} alt="Post image" className={classes.card__image} />
         <div className={classes.card__texts}>
           <div className={classes.card__author}>
             <img
-              src={avatar_url !== null ? avatar_url : "./src/images/avatar.png"}
-              alt="Default Avatar"
+              src={userAvatar}
+              alt="User Avatar"
               className={classes.card__avatar}
             />
             <p className={classes.card__email}>{email}</p>

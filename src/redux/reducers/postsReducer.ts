@@ -1,13 +1,21 @@
+import { PostsAction } from "../types/posts";
+import { Post } from "../../types/types";
+
 import {
   FETCH_POSTS,
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_SUCCESS,
 } from "../actions/constants";
-import { PostsAction, PostsState } from "../types/posts";
+
+interface PostsState {
+  postList: Post[];
+  isLoading: boolean;
+  error: string | null;
+}
 
 const initialState: PostsState = {
-  posts: [],
-  loading: false,
+  postList: [],
+  isLoading: false,
   error: null,
 };
 
@@ -19,20 +27,18 @@ const postsReducer = (
     case FETCH_POSTS:
       return {
         ...state,
-        loading: true,
-        error: null,
+        isLoading: true,
       };
     case FETCH_POSTS_SUCCESS:
       return {
         ...state,
-        posts: action.payload,
-        loading: false,
+        postList: action.payload,
+        isLoading: false,
       };
     case FETCH_POSTS_FAILURE:
       return {
         ...state,
-        posts: [],
-        loading: false,
+        isLoading: false,
         error: action.payload,
       };
     default:
