@@ -35,27 +35,26 @@
 
 .card__author {
   display: flex;
-  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.5em;
+  font-weight: 900;
 }
 
 .card__email,
 .card__date {
-  font-size: 1em;
+  font-size: 90%;
   color: var(--card-text-color);
 }
 
 .card__avatar {
   margin-right: 10%;
-  height: 3em;
+  max-width: 100px;
+  width: 30%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 100px;
   box-shadow: 0 0 7px var(--card-text-color);
-}
-
-.card__author {
-  font-size: 1.5em;
-  font-weight: 900;
 }
 
 .card__title {

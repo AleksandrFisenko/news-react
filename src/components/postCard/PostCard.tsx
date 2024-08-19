@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Tag } from "../../types/types";
 
 import classes from "./PostCard.module.css";
+import { formatDate } from "../../utils/dateUtils";
 
 interface PostProps {
   image_url: string | null;
@@ -33,13 +34,12 @@ const PostCard = ({
     ? classes.card__text
     : classes.card__text + " " + classes.card__text_hidden;
 
-  const postImage = image_url !== null 
-  ? image_url 
-  : "./src/images/ibs.png";
+  const postImage = image_url !== null ? image_url : "./src/images/ibs.png";
 
-  const userAvatar = avatar_url !== null 
-  ? avatar_url 
-  : "./src/images/avatar.png";
+  const userAvatar =
+    avatar_url !== null ? avatar_url : "./src/images/avatar.png";
+
+  updatedAt = formatDate(updatedAt);
 
   return (
     <div className={classes.card}>
