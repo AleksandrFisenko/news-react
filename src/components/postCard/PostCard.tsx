@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import { Tag } from "../../types/types";
+import { formatDate } from "../../utils/dateUtils";
 
 import classes from "./PostCard.module.css";
-import { formatDate } from "../../utils/dateUtils";
 
 interface PostProps {
   image_url: string | null;

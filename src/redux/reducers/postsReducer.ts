@@ -1,5 +1,6 @@
-import { PostsAction } from "../types/posts";
 import { Post } from "../../types/types";
+
+import { PostsAction } from "../types/posts";
 
 import {
   FETCH_POSTS,
