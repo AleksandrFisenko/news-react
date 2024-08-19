@@ -11,10 +11,3 @@
   display: flex;
   align-items: center;
 }
-
-.header__title {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--header-title-color);
-  margin: 0;
-}

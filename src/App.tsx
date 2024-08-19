@@ -1,5 +1,5 @@
-import Header from "./components/header/Header";
-import MainPage from "./pages/main/MainPage";
+import Header from "./components/Header";
+import MainPage from "./pages/MainPage";
 
 const App = () => {
   return (

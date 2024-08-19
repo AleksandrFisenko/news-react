@@ -1,4 +1,4 @@
-import Logo from "../logo/Logo";
+import Logo from "../Logo";
 
 import classes from "./Header.module.css";
 
@@ -7,7 +7,6 @@ const Header = () => {
     <header className={classes.header}>
       <div className={classes.header__firstContainer}>
         <Logo />
-        <p className={classes.header__title}>NEWS</p>
       </div>
     </header>
   );

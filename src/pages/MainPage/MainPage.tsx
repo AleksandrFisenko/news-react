@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-import PostList from "../../components/postList/PostList";
-import Loading from "../../components/loading/Loading";
-import Error from "../../components/error/Error";
+import PostList from "../../components/PostList";
+import Loading from "../../components/Loading";
+import Error from "../../components/Error";
 import { fetchPosts } from "../../redux/actions/posts";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 
@@ -23,7 +23,7 @@ const MainPage = () => {
     <>
       {isLoading && <Loading />}
       {error && <Error message={error} />}
-      {!posts.length && <p className={classes.empty}>Постов нет.</p>}
+      {!posts.length && isLoading && <p className={classes.empty}>Постов нет.</p>}
       <PostList posts={posts} />
     </>
   );

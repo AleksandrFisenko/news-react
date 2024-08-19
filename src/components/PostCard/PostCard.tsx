@@ -2,13 +2,16 @@ import { useState } from "react";
 
 import { Tag } from "../../types/types";
 import { formatDate } from "../../utils/dateUtils";
+import TagItem from "../TagItem";
+import placeholderImage from "../../images/ibs.png";
+import placeholderAvatar from "../../images/avatar.png";
 
 import classes from "./PostCard.module.css";
 
 interface PostProps {
-  image_url: string | null;
+  imageUrl: string | null;
   email: string;
-  avatar_url: string | null;
+  avatarUrl: string | null;
   updatedAt: string;
   title: string;
   text: string;
@@ -16,9 +19,9 @@ interface PostProps {
 }
 
 const PostCard = ({
-  image_url,
+  imageUrl,
   email,
-  avatar_url,
+  avatarUrl,
   updatedAt,
   title,
   text,
@@ -34,21 +37,20 @@ const PostCard = ({
     ? classes.card__text
     : classes.card__text + " " + classes.card__text_hidden;
 
-  const postImage = image_url !== null ? image_url : "./src/images/ibs.png";
-
-  const userAvatar =
-    avatar_url !== null ? avatar_url : "./src/images/avatar.png";
-
   updatedAt = formatDate(updatedAt);
 
   return (
     <div className={classes.card}>
       <div className={classes.card__main}>
-        <img src={postImage} alt="Post image" className={classes.card__image} />
+        <img
+          src={imageUrl ?? placeholderImage}
+          alt="Post image"
+          className={classes.card__image}
+        />
         <div className={classes.card__texts}>
           <div className={classes.card__author}>
             <img
-              src={userAvatar}
+              src={avatarUrl ?? placeholderAvatar}
               alt="User Avatar"
               className={classes.card__avatar}
             />
@@ -63,13 +65,13 @@ const PostCard = ({
       </div>
       <div className={classes.card__tags}>
         <span>Tags: </span>
-        {tags.map((tag, index, arr) => {
-          return (
-            <span key={tag.id}>
-              {tag.name + (index === arr.length - 1 ? "." : ",")}
-            </span>
-          );
-        })}
+        {tags.map((tag, index) => (
+          <TagItem
+            key={tag.id}
+            tag={tag.name}
+            isLast={index === tags.length - 1}
+          />
+        ))}
       </div>
     </div>
   );

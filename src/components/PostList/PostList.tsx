@@ -1,6 +1,6 @@
 import { Post } from "../../types/types";
 
-import PostCard from "../postCard/PostCard";
+import PostCard from "../PostCard";
 
 import classes from "./PostList.module.css";
 
@@ -16,9 +16,9 @@ const PostList = ({ posts }: PostsProps) => {
         return (
           <PostCard
             key={post.id}
-            image_url={post.image_url}
+            imageUrl={post.image_url}
             email={post.user.email}
-            avatar_url={post.user.avatar_url}
+            avatarUrl={post.user.avatar_url}
             updatedAt={post.updatedAt}
             title={post.title}
             text={post.text}
