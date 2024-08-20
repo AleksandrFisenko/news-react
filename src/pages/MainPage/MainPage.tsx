@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import PostList from "../../components/PostList";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
-import { fetchPosts } from "../../redux/actions/posts";
+import { fetchPosts } from "../../redux/actions/actionCreators";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 
 import classes from "./MainPage.module.css";
@@ -23,7 +23,7 @@ const MainPage = () => {
     <>
       {isLoading && <Loading />}
       {error && <Error message={error} />}
-      {!posts.length && isLoading && <p className={classes.empty}>Постов нет.</p>}
+      {!posts.length && !isLoading && <p className={classes.empty}>Постов нет.</p>}
       <PostList posts={posts} />
     </>
   );

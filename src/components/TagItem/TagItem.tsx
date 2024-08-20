@@ -1,9 +1,9 @@
-interface TagProps {
+interface TagItemProps {
   tag: string;
   isLast: boolean;
 }
 
-const TagItem = ({ tag, isLast }: TagProps) => {
+const TagItem = ({ tag, isLast }: TagItemProps) => {
   return <span>{tag + (isLast ? "." : ",")}</span>;
 };
 

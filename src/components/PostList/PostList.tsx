@@ -1,14 +1,14 @@
-import { Post } from "../../types/types";
+import { Post } from "../../types/common";
 
 import PostCard from "../PostCard";
 
 import classes from "./PostList.module.css";
 
-interface PostsProps {
+interface PostListProps {
   posts: Post[];
 }
 
-const PostList = ({ posts }: PostsProps) => {
+const PostList = ({ posts }: PostListProps) => {
 
   return (
     <div className={classes.cardContainer}>

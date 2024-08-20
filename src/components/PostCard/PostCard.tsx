@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Tag } from "../../types/types";
+import { Tag } from "../../types/common";
 import { formatDate } from "../../utils/dateUtils";
 import TagItem from "../TagItem";
 import placeholderImage from "../../images/ibs.png";
@@ -8,7 +8,7 @@ import placeholderAvatar from "../../images/avatar.png";
 
 import classes from "./PostCard.module.css";
 
-interface PostProps {
+interface PostCardProps {
   imageUrl: string | null;
   email: string;
   avatarUrl: string | null;
@@ -26,18 +26,16 @@ const PostCard = ({
   title,
   text,
   tags,
-}: PostProps) => {
-  const [details, setDetails] = useState(false);
+}: PostCardProps) => {
+  const [isDetailsUnhidden, setDetails] = useState(false);
 
   const changeDetails = () => {
     setDetails((prevDetails) => !prevDetails);
   };
 
-  const cardTextClasses = details
+  const cardTextClasses = isDetailsUnhidden
     ? classes.card__text
     : classes.card__text + " " + classes.card__text_hidden;
-
-  updatedAt = formatDate(updatedAt);
 
   return (
     <div className={classes.card}>
@@ -56,7 +54,7 @@ const PostCard = ({
             />
             <p className={classes.card__email}>{email}</p>
           </div>
-          <p className={classes.card__date}>{updatedAt} </p>
+          <p className={classes.card__date}>{formatDate(updatedAt)} </p>
           <p className={classes.card__title}>{title}</p>
           <p className={cardTextClasses} onClick={changeDetails}>
             {text}

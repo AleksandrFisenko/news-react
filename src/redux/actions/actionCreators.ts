@@ -1,4 +1,4 @@
-import { Post } from "../../types/types";
+import { Post } from "../../types/common";
 
 import {
   FETCH_POSTS,
@@ -6,14 +6,14 @@ import {
   FETCH_POSTS_SUCCESS,
 } from "./constants";
 
-export const doFetchPosts = () => ({ type: FETCH_POSTS });
+export const fetchPosts = () => ({ type: FETCH_POSTS });
 
-export const doFetchPostsSuccess = (posts: Post[]) => ({
+export const fetchPostsSuccess = (posts: Post[]) => ({
   type: FETCH_POSTS_SUCCESS,
   payload: posts,
 });
 
-export const doFetchPostsFailure = (payload: string) => ({
+export const fetchPostsFailure = (payload: string) => ({
   type: FETCH_POSTS_FAILURE,
   payload,
 });

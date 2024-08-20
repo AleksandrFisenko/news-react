@@ -1,4 +1,4 @@
-import { Post } from "../../types/types";
+import { Post } from "../../types/common";
 
 import {
   FETCH_POSTS,
