@@ -1,0 +1,85 @@
+.card {
+  width: 80%;
+  min-width: 550px;
+  margin: 5%;
+  box-shadow: 0 2px 4px var(--card-shadow-color);
+  transition: transform 0.2s ease;
+}
+
+.card__main {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card .card__texts {
+  margin: 0 10%;
+  font-size: 100%;
+}
+
+.card__texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__image {
+  width: 100%;
+  min-width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.card__author {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.card__email,
+.card__date {
+  font-size: 90%;
+  color: var(--card-text-color);
+}
+
+.card__avatar {
+  margin-right: 10%;
+  max-width: 100px;
+  width: 30%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 100px;
+  box-shadow: 0 0 7px var(--card-text-color);
+}
+
+.card__title {
+  font-size: 1.5em;
+  color: var(--card-title-color);
+}
+
+.card__text {
+  font-size: 100%;
+  word-break: break-all;
+  color: var(--card-text-color);
+}
+
+.card__text_hidden {
+  font-size: 100%;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+}
+
+.card__tags {
+  color: var(--card-text-color);
+  margin: 1%;
+}

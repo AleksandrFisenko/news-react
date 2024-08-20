@@ -1,0 +1,13 @@
+.header {
+  width: calc(100vw - 40px);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px var(--header-shadow-color);
+}
+
+.header__firstContainer {
+  display: flex;
+  align-items: center;
+}
