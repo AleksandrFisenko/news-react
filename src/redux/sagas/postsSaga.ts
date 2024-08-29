@@ -5,7 +5,7 @@ import {
 } from "redux-saga/effects";
 import { AxiosError, AxiosResponse } from "axios";
 
-import { Post } from "../../types/common";
+import { Post } from "../../types/posts";
 
 import { fetchPostsFailure, fetchPostsSuccess } from "../actions/actionCreators";
 import { FETCH_POSTS } from "../actions/constants";

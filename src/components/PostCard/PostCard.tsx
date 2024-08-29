@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Tag } from "../../types/common";
+import { Tag } from "../../types/posts";
 import { formatDate } from "../../utils/dateUtils";
 import TagItem from "../TagItem";
 import placeholderImage from "../../images/ibs.png";
