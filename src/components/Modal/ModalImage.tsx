@@ -1,10 +1,7 @@
 import { Box, Modal } from "@mui/material";
 
-interface ModalImageProps {
-  isActive: boolean;
-  closeModal: React.Dispatch<React.SetStateAction<boolean>>;
-  imageUrl: string;
-}
+import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
+import { modalClose } from "../../redux/actions/creators/modalActionCreators";
 
 const style = {
   position: "absolute",
@@ -12,17 +9,20 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "90vw",
-}
+};
 
-const ModalImage = ({
-  isActive,
-  closeModal,
-  imageUrl,
-}: ModalImageProps) => {
+const ModalImage = () => {
+  const isOpen = useAppSelector((state) => state.modals.isOpen);
+
+  const dispatch = useAppDispatch();
+
+  const close = () => {
+    dispatch(modalClose());
+  };
 
   return (
-    <Modal open={isActive} onClose={closeModal}>
-      <Box component="img" sx={style} src={imageUrl}></Box>
+    <Modal open={isOpen} onClose={close}>
+      <Box component="img" sx={style} src={null}></Box>
     </Modal>
   );
 };

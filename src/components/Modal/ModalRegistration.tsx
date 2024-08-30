@@ -1,43 +1,33 @@
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 
-interface ModalRegistrationProps {
-  isActive: boolean;
-  setActive: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { style } from "../../constants/common";
+import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
+import { modalClose } from "../../redux/actions/creators/modalActionCreators";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  height: 400,
-  bgcolor: "grey",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: 2,
-};
+const ModalRegistration = () => {
+  const isOpen = useAppSelector(
+    (state) => state.modals.modalType === "register"
+  );
 
-const ModalRegistration = ({ isActive, setActive }: ModalRegistrationProps) => {
-  const handleClose = () => setActive(false);
+  const dispatch = useAppDispatch();
+
+  const close = () => {
+    dispatch(modalClose());
+  };
 
   return (
-    <Modal
-      open={isActive}
-      onClose={handleClose}
-    >
+    <Modal open={isOpen} onClose={close}>
       <Box sx={style}>
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Registration
         </Typography>
         <TextField id="outlined-email-input" label="email" variant="outlined" />
         <TextField id="outlined-basic" label="login" variant="outlined" />
-        <TextField id="outlined-password-input" label="password" variant="outlined" />
+        <TextField
+          id="outlined-password-input"
+          label="password"
+          variant="outlined"
+        />
         <Button variant="contained">sign up</Button>
       </Box>
     </Modal>

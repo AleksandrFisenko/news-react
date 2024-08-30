@@ -1,26 +1,18 @@
-import { useState } from "react";
-
 import Header from "./components/Header";
 import ModalRegistration from "./components/Modal/ModalRegistration";
 import MainPage from "./pages/MainPage";
 import ModalLogin from "./components/Modal/ModalLogin";
+import { useAppSelector } from "./hooks/typedHooks";
 
 const App = () => {
-  const [isModalRegistrationActive, setModalRegistrationActive] = useState(false);
-  const [isModalLoginActive, setModalLoginActive] = useState(false);
+  const modalType = useAppSelector((state) => state.modals.modalType);
 
   return (
     <>
-      <Header
-        openRegistration={setModalRegistrationActive}
-        openLogin={setModalLoginActive}
-      />
+      <Header />
       <MainPage />
-      <ModalRegistration
-        isActive={isModalRegistrationActive}
-        setActive={setModalRegistrationActive}
-      />
-      <ModalLogin isActive={isModalLoginActive} setActive={setModalLoginActive} />
+      {modalType === "register" && <ModalRegistration />}
+      {modalType === "login" && <ModalLogin />}
     </>
   );
 };

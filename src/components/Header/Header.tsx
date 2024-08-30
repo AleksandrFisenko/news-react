@@ -1,15 +1,18 @@
+import { useAppDispatch } from "../../hooks/typedHooks";
+import { modalOpen } from "../../redux/actions/creators/modalActionCreators";
 import Logo from "../Logo";
 
 import classes from "./Header.module.css";
 
-interface HeaderProps {
-  openRegistration: React.Dispatch<React.SetStateAction<boolean>>
-  openLogin: React.Dispatch<React.SetStateAction<boolean>>
-}
+const Header = () => {
+  const dispatch = useAppDispatch();
+  const openRegistration = () => {
+    dispatch(modalOpen("register"))
+  }
 
-const Header = ({openRegistration, openLogin}: HeaderProps) => {
-  const handleRegistrationOpen = () => openRegistration(true);
-  const handleLoginOpen = () => openLogin(true);
+  const openLogin = () => {
+    dispatch(modalOpen("login"))
+  }
 
   return (
     <header className={classes.header}>
@@ -17,8 +20,8 @@ const Header = ({openRegistration, openLogin}: HeaderProps) => {
         <Logo />
       </div>
       <div className={classes.header__auth}>
-          <button className={classes.header__button} onClick={handleRegistrationOpen}>sign up</button>
-          <button className={classes.header__button} onClick={handleLoginOpen}>sign in</button>
+          <button className={classes.header__button} onClick={openRegistration}>sign up</button>
+          <button className={classes.header__button} onClick={openLogin}>sign in</button>
         </div>
     </header>
   );

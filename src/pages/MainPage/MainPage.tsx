@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import PostList from "../../components/PostList";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
-import { fetchPosts } from "../../redux/actions/actionCreators";
+import { fetchPosts } from "../../redux/actions/creators/postsActionCreators";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 
 import classes from "./MainPage.module.css";
