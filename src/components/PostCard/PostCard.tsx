@@ -33,7 +33,7 @@ const PostCard = ({
   const modalType = useAppSelector((state) => state.modals.modalType);
   const dispatch = useAppDispatch();
   const openImage = () => {
-    dispatch(modalOpen("image"));
+    dispatch(modalOpen("image", imageUrl ?? placeholderImage));
   };
 
   const [isDetailsUnhidden, setDetails] = useState(false);
@@ -80,9 +80,7 @@ const PostCard = ({
           />
         ))}
       </div>
-      {modalType === "image" && (
-        <ModalImage imageUrl={imageUrl ?? placeholderImage} />
-      )}
+      {modalType === "image" && <ModalImage />}
     </div>
   );
 };

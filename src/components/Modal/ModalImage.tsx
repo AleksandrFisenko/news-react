@@ -13,7 +13,7 @@ const style = {
 
 const ModalImage = () => {
   const isOpen = useAppSelector((state) => state.modals.isOpen);
-
+  const imageUrl = useAppSelector((state) => state.modals.imageUrl);
   const dispatch = useAppDispatch();
 
   const close = () => {
@@ -22,7 +22,7 @@ const ModalImage = () => {
 
   return (
     <Modal open={isOpen} onClose={close}>
-      <Box component="img" sx={style} src={null}></Box>
+      <Box component="img" sx={style} src={imageUrl}></Box>
     </Modal>
   );
 };

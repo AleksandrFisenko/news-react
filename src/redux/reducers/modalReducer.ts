@@ -4,6 +4,7 @@ import { ModalAction } from "../types/modal";
 interface ModalState {
   isOpen: boolean;
   modalType: "login" | "register" | "image" | null;
+  imageUrl?: string;
 }
 
 const initialState: ModalState = {
@@ -21,12 +22,14 @@ const modalsReducer = (
         ...state,
         isOpen: true,
         modalType: action.payload.modalType,
+        imageUrl: action.payload.imageUrl,
       };
     case MODAL_CLOSE:
       return {
         ...state,
         isOpen: false,
         modalType: null,
+        imageUrl: undefined,
       };
     default:
       return state;

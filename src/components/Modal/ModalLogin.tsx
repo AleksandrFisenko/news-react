@@ -5,13 +5,13 @@ import { modalClose } from "../../redux/actions/creators/modalActionCreators";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 
 const ModalLogin = () => {
-  const isOpen = useAppSelector((state) => state.modals.modalType === "image");
+  const isOpen = useAppSelector((state) => state.modals.modalType === "login");
 
   const dispatch = useAppDispatch();
 
   const close = () => {
-    dispatch(modalClose())
-  }
+    dispatch(modalClose());
+  };
 
   return (
     <Modal open={isOpen} onClose={close}>
