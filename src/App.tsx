@@ -6,8 +6,8 @@ import MainPage from "./pages/MainPage";
 import ModalLogin from "./components/Modal/ModalLogin";
 
 const App = () => {
-  const [modalRegistrationActive, setModalRegistrationActive] = useState(true);
-  const [modalLoginActive, setModalLoginActive] = useState(false);
+  const [isModalRegistrationActive, setModalRegistrationActive] = useState(false);
+  const [isModalLoginActive, setModalLoginActive] = useState(false);
 
   return (
     <>
@@ -17,10 +17,10 @@ const App = () => {
       />
       <MainPage />
       <ModalRegistration
-        active={modalRegistrationActive}
+        isActive={isModalRegistrationActive}
         setActive={setModalRegistrationActive}
       />
-      <ModalLogin active={modalLoginActive} setActive={setModalLoginActive} />
+      <ModalLogin isActive={isModalLoginActive} setActive={setModalLoginActive} />
     </>
   );
 };

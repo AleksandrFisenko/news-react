@@ -7,6 +7,8 @@ import placeholderImage from "../../images/ibs.png";
 import placeholderAvatar from "../../images/avatar.png";
 
 import classes from "./PostCard.module.css";
+import ModalImage from "../Modal/ModalImage";
+import ModalRegistration from "../Modal/ModalRegistration";
 
 interface PostCardProps {
   imageUrl: string | null;
@@ -27,8 +29,15 @@ const PostCard = ({
   text,
   tags,
 }: PostCardProps) => {
-  const [isDetailsUnhidden, setDetails] = useState(false);
+  const [isModalImageActive, setModalImageActive] = useState(false);
+  const openModal = () => {
+    setModalImageActive(true);
+  };
+  const closeModal = () => {
+    setModalImageActive(false);
+  };
 
+  const [isDetailsUnhidden, setDetails] = useState(false);
   const changeDetails = () => {
     setDetails((prevDetails) => !prevDetails);
   };
@@ -44,6 +53,7 @@ const PostCard = ({
           src={imageUrl ?? placeholderImage}
           alt="Post image"
           className={classes.card__image}
+          onClick={openModal}
         />
         <div className={classes.card__texts}>
           <div className={classes.card__author}>
@@ -71,6 +81,13 @@ const PostCard = ({
           />
         ))}
       </div>
+      {isModalImageActive && (
+        <ModalImage
+          isActive={isModalImageActive}
+          closeModal={closeModal}
+          imageUrl={imageUrl ?? placeholderImage}
+        />
+      )}
     </div>
   );
 };

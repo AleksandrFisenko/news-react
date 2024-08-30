@@ -1,6 +1,6 @@
 .card {
   width: 80%;
-  min-width: 550px;
+  min-width: 640px;
   margin: 5%;
   box-shadow: 0 2px 4px var(--card-shadow-color);
   transition: transform 0.2s ease;
@@ -30,7 +30,8 @@
   width: 100%;
   min-width: 200px;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
+  margin-left: 10px;
 }
 
 .card__author {
@@ -64,7 +65,6 @@
 
 .card__text {
   font-size: 100%;
-  word-break: break-all;
   color: var(--card-text-color);
 }
 
