@@ -1,4 +1,3 @@
-import { headers } from "../constants/common";
 import {
   LoginRequest,
   LoginResponce,
@@ -9,13 +8,13 @@ import {
 import api from "./axios";
 
 export const registration = (data: RegisterRequest) => {
-  return api.post<LoginResponce>('/registration', data, headers);
+  return api.post<LoginResponce>('/auth/registration', data);
 };
 
 export const login = (data: LoginRequest) => {
-  return api.post<LoginResponce>('/registration', data, headers);
+  return api.post<LoginResponce>('/auth/login', data);
 };
 
-export const profile = (token: string) => {
-  return api.get<Profile>('/registration', { headers: {"Authorization" : `Bearer ${token}`} });;
+export const getProfile = (token: string) => {
+  return api.get<Profile>('/auth/profile', { headers: {"Authorization" : `Bearer ${token}`} });;
 };

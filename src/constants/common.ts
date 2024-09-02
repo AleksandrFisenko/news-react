@@ -1,9 +1,3 @@
-export const headers = {
-  headers: {
-    "Content-Type": "application/json",
-  },
-};
-
 export const style = {
   position: "absolute",
   top: "50%",

@@ -29,6 +29,7 @@ const postsReducer = (
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case FETCH_POSTS_SUCCESS:
       return {

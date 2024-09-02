@@ -1,3 +1,4 @@
+import { LoginResponce } from "../../types/auth";
 import {
   FETCH_AUTH,
   FETCH_AUTH_FAILURE,
@@ -5,30 +6,30 @@ import {
 } from "../actions/constants";
 import { AuthAction } from "../types/auth";
 
-interface RegistrationState {
+interface AuthState {
+  userData: LoginResponce | null;
   isLoading: boolean;
   error: string | null;
 }
 
-const initialState: RegistrationState = {
+const initialState: AuthState = {
+  userData: null,
   isLoading: false,
   error: null,
 };
 
-const postsReducer = (
-  state = initialState,
-  action: AuthAction
-): RegistrationState => {
+const authReducer = (state = initialState, action: AuthAction): AuthState => {
   switch (action.type) {
     case FETCH_AUTH:
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case FETCH_AUTH_SUCCESS:
       return {
         ...state,
-        postList: action.payload,
+        userData: action.payload,
         isLoading: false,
       };
     case FETCH_AUTH_FAILURE:
@@ -42,4 +43,4 @@ const postsReducer = (
   }
 };
 
-export default postsReducer;
+export default authReducer;

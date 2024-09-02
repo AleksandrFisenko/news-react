@@ -1,5 +1,4 @@
 import { LoginResponce } from "../../types/auth";
-
 import {
   FETCH_AUTH,
   FETCH_AUTH_FAILURE,

@@ -1,5 +1,4 @@
 import { Post } from "../../../types/posts";
-
 import {
   FETCH_POSTS,
   FETCH_POSTS_FAILURE,
