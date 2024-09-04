@@ -9,10 +9,13 @@ import { modalClose } from "./redux/actions/creators/modalActionCreators";
 
 const App = () => {
   const modalType = useAppSelector((state) => state.modals.modalType);
+
   const isAuthenticated = useAppSelector(
     (state) => state.auth.userData !== null
   );
+
   const dispatch = useAppDispatch();
+  
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(modalClose());

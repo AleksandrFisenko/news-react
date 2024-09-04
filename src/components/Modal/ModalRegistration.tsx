@@ -14,7 +14,9 @@ const ModalRegistration = () => {
   const isOpen = useAppSelector(
     (state) => state.modals.modalType === "register"
   );
+
   const dispatch = useAppDispatch();
+  
   const close = () => {
     dispatch(modalClose());
   };
@@ -31,6 +33,7 @@ const ModalRegistration = () => {
     },
     resolver: yupResolver(registrationSchema),
   });
+
   const onSubmit = (registerData: RegisterRequest) => {
     dispatch(fetchAuthRegistration(registerData));
   };

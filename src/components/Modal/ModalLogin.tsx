@@ -14,6 +14,7 @@ const ModalLogin = () => {
   const isOpen = useAppSelector((state) => state.modals.modalType === "login");
 
   const dispatch = useAppDispatch();
+  
   const close = () => {
     dispatch(modalClose());
   };
@@ -29,6 +30,7 @@ const ModalLogin = () => {
     },
     resolver: yupResolver(loginSchema),
   });
+
   const onSubmit = (loginData: LoginRequest) => {
     dispatch(fetchAuthLogin(loginData));
   };
