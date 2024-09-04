@@ -1,40 +1,46 @@
-import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { style } from "../../constants/common";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 import { modalClose } from "../../redux/actions/creators/modalActionCreators";
-import { fetchAuth } from "../../redux/actions/creators/authActionCreators";
+import { fetchAuthRegistration } from "../../redux/actions/creators/authActionCreators";
 import { RegisterRequest } from "../../types/auth";
 
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
-import { Form } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { registrationSchema } from "../../validation/common";
 
 const ModalRegistration = () => {
   const isOpen = useAppSelector(
     (state) => state.modals.modalType === "register"
   );
-
   const dispatch = useAppDispatch();
   const close = () => {
     dispatch(modalClose());
   };
 
-  const [email, setEmail] = useState("");
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-  const registration = () => {
-    const registerRequest: RegisterRequest = {
-      email,
-      login,
-      password,
-    };
-    dispatch(fetchAuth(registerRequest));
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterRequest>({
+    defaultValues: {
+      email: "",
+      login: "",
+      password: "",
+    },
+    resolver: yupResolver(registrationSchema),
+  });
+  const onSubmit = (registerData: RegisterRequest) => {
+    dispatch(fetchAuthRegistration(registerData));
   };
+
+  const error = useAppSelector((state) => state.auth.error);
 
   return (
     <Modal open={isOpen} onClose={close}>
-      <Box sx={style}>
-        <Form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Registration
           </Typography>
@@ -43,29 +49,37 @@ const ModalRegistration = () => {
             label="email"
             type="email"
             variant="outlined"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            {...register("email")}
+            error={!!errors.email}
+            helperText={errors.email?.message}
           />
           <TextField
             id="outlined-basic"
             label="login"
             variant="outlined"
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
+            {...register("login")}
+            error={!!errors.login}
+            helperText={errors.login?.message}
           />
           <TextField
             id="outlined-password-input"
             label="password"
             type="password"
             variant="outlined"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            {...register("password")}
+            error={!!errors.password}
+            helperText={errors.password?.message}
           />
-          <Button variant="contained" onClick={registration}>
+          {error && (
+            <Typography color="error" variant="body2">
+              {error}
+            </Typography>
+          )}
+          <Button variant="contained" type="submit">
             sign up
           </Button>
-        </Form>
-      </Box>
+        </Box>
+      </form>
     </Modal>
   );
 };

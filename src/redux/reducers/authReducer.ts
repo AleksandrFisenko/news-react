@@ -1,13 +1,14 @@
-import { LoginResponce } from "../../types/auth";
+import { Profile } from "../../types/auth";
 import {
   FETCH_AUTH,
   FETCH_AUTH_FAILURE,
   FETCH_AUTH_SUCCESS,
+  OUT_AUTH,
 } from "../actions/constants";
 import { AuthAction } from "../types/auth";
 
 interface AuthState {
-  userData: LoginResponce | null;
+  userData: Profile | null;
   isLoading: boolean;
   error: string | null;
 }
@@ -23,6 +24,7 @@ const authReducer = (state = initialState, action: AuthAction): AuthState => {
     case FETCH_AUTH:
       return {
         ...state,
+        userData: null,
         isLoading: true,
         error: null,
       };
@@ -37,6 +39,11 @@ const authReducer = (state = initialState, action: AuthAction): AuthState => {
         ...state,
         isLoading: false,
         error: action.payload,
+      };
+    case OUT_AUTH:
+      return {
+        ...state,
+        userData: null,
       };
     default:
       return state;

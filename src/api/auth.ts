@@ -7,14 +7,19 @@ import {
 
 import api from "./axios";
 
-export const registration = (data: RegisterRequest) => {
-  return api.post<LoginResponce>('/auth/registration', data);
+export const auth = async (
+  data: LoginRequest | RegisterRequest,
+  url: string
+): Promise<Profile> => {
+  const response = await api.post<LoginResponce>(`/auth/${url}`, data);
+  localStorage.setItem("token", response.data.token);
+  return response.data.user;
 };
 
-export const login = (data: LoginRequest) => {
-  return api.post<LoginResponce>('/auth/login', data);
-};
-
-export const getProfile = (token: string) => {
-  return api.get<Profile>('/auth/profile', { headers: {"Authorization" : `Bearer ${token}`} });;
+export const getProfile = async (): Promise<Profile> => {
+  const token = localStorage.getItem("token");
+  const response = await api.get<Profile>("/auth/profile", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
 };

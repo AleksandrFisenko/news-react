@@ -13,7 +13,7 @@ export interface Profile {
   id: number;
   email: string;
   login: string;
-  avatarUrl: string;
+  avatarUrl: string | null;
   updatedAt: string;
 }
 
