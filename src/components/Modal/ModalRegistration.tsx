@@ -8,7 +8,7 @@ import { RegisterRequest } from "../../types/auth";
 
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { registrationSchema } from "../../validation/common";
+import { registrationSchema } from "../../utils/authSchema";
 
 const ModalRegistration = () => {
   const isOpen = useAppSelector(

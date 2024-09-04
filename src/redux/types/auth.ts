@@ -1,4 +1,4 @@
-import { Profile } from "../../types/auth";
+import { LoginRequest, Profile, RegisterRequest } from "../../types/auth";
 import {
   FETCH_AUTH,
   FETCH_AUTH_FAILURE,
@@ -8,6 +8,7 @@ import {
 
 export interface FetchAuth {
   type: typeof FETCH_AUTH;
+  payload: RegisterRequest | LoginRequest | null;
 }
 
 export interface OutAuthAction {

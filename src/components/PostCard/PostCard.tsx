@@ -7,9 +7,6 @@ import placeholderImage from "../../images/ibs.png";
 import placeholderAvatar from "../../images/avatar.png";
 
 import classes from "./PostCard.module.css";
-import ModalImage from "../Modal/ModalImage";
-import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
-import { modalOpen } from "../../redux/actions/creators/modalActionCreators";
 
 interface PostCardProps {
   imageUrl: string | null;
@@ -30,11 +27,6 @@ const PostCard = ({
   text,
   tags,
 }: PostCardProps) => {
-  const modalType = useAppSelector((state) => state.modals.modalType);
-  const dispatch = useAppDispatch();
-  const openImage = () => {
-    dispatch(modalOpen("image", imageUrl ?? placeholderImage));
-  };
 
   const [isDetailsUnhidden, setDetails] = useState(false);
   const changeDetails = () => {
@@ -52,7 +44,6 @@ const PostCard = ({
           src={imageUrl ?? placeholderImage}
           alt="Post image"
           className={classes.card__image}
-          onClick={openImage}
         />
         <div className={classes.card__texts}>
           <div className={classes.card__author}>
@@ -80,7 +71,6 @@ const PostCard = ({
           />
         ))}
       </div>
-      {modalType === "image" && <ModalImage />}
     </div>
   );
 };

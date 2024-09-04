@@ -1,15 +1,21 @@
 import { useEffect } from "react";
+
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
-import { fetchAuthProfile } from "../../redux/actions/creators/authActionCreators";
-import AuthButtons from "../AuthButtons";
-import AuthUser from "../AuthUser";
+import {
+  fetchAuthProfile,
+  outAuth,
+} from "../../redux/actions/creators/authActionCreators";
+import placeholderAvatar from "../../images/avatar.png";
 import Logo from "../Logo";
 
 import classes from "./Header.module.css";
+import { modalOpen } from "../../redux/actions/creators/modalActionCreators";
 
 const Header = () => {
   const authData = useAppSelector((state) => state.auth.userData);
+
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -17,13 +23,46 @@ const Header = () => {
     }
   }, []);
 
+  const openRegistration = () => {
+    dispatch(modalOpen("register"));
+  };
+
+  const openLogin = () => {
+    dispatch(modalOpen("login"));
+  };
+
+  const signOut = () => {
+    dispatch(outAuth());
+  };
+
   return (
     <header className={classes.header}>
       <div className={classes.header__firstContainer}>
         <Logo />
       </div>
-      {!authData && <AuthButtons />}
-      {authData && <AuthUser avatarUrl={authData.avatarUrl} />}
+      <div className={classes.auth}>
+        {authData ? (
+          <>
+            <img
+              src={authData.avatarUrl ?? placeholderAvatar}
+              alt="User Avatar"
+              className={classes.auth__avatar}
+            />
+            <button className={classes.auth__button} onClick={signOut}>
+              sign out
+            </button>
+          </>
+        ) : (
+          <>
+            <button className={classes.auth__button} onClick={openRegistration}>
+              sign up
+            </button>
+            <button className={classes.auth__button} onClick={openLogin}>
+              sign in
+            </button>
+          </>
+        )}
+      </div>
     </header>
   );
 };

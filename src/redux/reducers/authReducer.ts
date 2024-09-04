@@ -24,7 +24,6 @@ const authReducer = (state = initialState, action: AuthAction): AuthState => {
     case FETCH_AUTH:
       return {
         ...state,
-        userData: null,
         isLoading: true,
         error: null,
       };

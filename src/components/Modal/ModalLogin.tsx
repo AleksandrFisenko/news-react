@@ -5,7 +5,7 @@ import { modalClose } from "../../redux/actions/creators/modalActionCreators";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 import { fetchAuthLogin } from "../../redux/actions/creators/authActionCreators";
 import { LoginRequest } from "../../types/auth";
-import { loginSchema } from "../../validation/common";
+import { loginSchema } from "../../utils/authSchema";
 
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";

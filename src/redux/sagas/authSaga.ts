@@ -1,24 +1,26 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { AxiosError } from "axios";
 
-import { LoginRequest, Profile, RegisterRequest } from "../../types/auth";
+import { Profile } from "../../types/auth";
 import { auth, getProfile } from "../../api/auth";
 import {
   fetchAuthFailure,
   fetchAuthSuccess,
 } from "../actions/creators/authActionCreators";
-import { FETCH_AUTH } from "../actions/constants";
+import { FETCH_AUTH, OUT_AUTH } from "../actions/constants";
+import { FetchAuth } from "../types/auth";
 
 export function* watchRequestAuth() {
   yield takeLatest(FETCH_AUTH, workerRequestAuth);
+  yield takeLatest(OUT_AUTH, workerOutAuth);
 }
 
-interface Action {
-  payload: RegisterRequest | LoginRequest | null;
-  type: string;
+function* workerOutAuth() {
+  localStorage.removeItem("token");
+  yield;
 }
 
-function* workerRequestAuth(action: Action) {
+function* workerRequestAuth(action: FetchAuth) {
   try {
     let response: Profile;
     if (action.payload === null) {
