@@ -1,4 +1,4 @@
-import { Post } from "../../types/common";
+import { Post } from "../../types/posts";
 
 import PostCard from "../PostCard";
 
@@ -16,9 +16,9 @@ const PostList = ({ posts }: PostListProps) => {
         return (
           <PostCard
             key={post.id}
-            imageUrl={post.image_url}
+            imageUrl={post.imageUrl}
             email={post.user.email}
-            avatarUrl={post.user.avatar_url}
+            avatarUrl={post.user.avatarUrl}
             updatedAt={post.updatedAt}
             title={post.title}
             text={post.text}

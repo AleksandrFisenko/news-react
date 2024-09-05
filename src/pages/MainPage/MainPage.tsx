@@ -3,15 +3,20 @@ import { useEffect } from "react";
 import PostList from "../../components/PostList";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
-import { fetchPosts } from "../../redux/actions/actionCreators";
+import { fetchPosts } from "../../redux/actions/creators/posts";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
+import {
+  selectPostsData,
+  selectPostsError,
+  selectPostsIsLoading,
+} from "../../redux/selectors/posts";
 
 import classes from "./MainPage.module.css";
 
 const MainPage = () => {
-  const posts = useAppSelector((state) => state.posts.postList);
-  const isLoading = useAppSelector((state) => state.posts.isLoading);
-  const error = useAppSelector((state) => state.posts.error);
+  const posts = useAppSelector(selectPostsData);
+  const isLoading = useAppSelector(selectPostsIsLoading);
+  const error = useAppSelector(selectPostsError);
 
   const dispatch = useAppDispatch();
 
@@ -23,7 +28,9 @@ const MainPage = () => {
     <>
       {isLoading && <Loading />}
       {error && <Error message={error} />}
-      {!posts.length && !isLoading && <p className={classes.empty}>Постов нет.</p>}
+      {!posts.length && !isLoading && (
+        <p className={classes.empty}>Постов нет.</p>
+      )}
       <PostList posts={posts} />
     </>
   );

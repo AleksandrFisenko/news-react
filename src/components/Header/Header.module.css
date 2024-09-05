@@ -1,5 +1,6 @@
 .header {
-  width: calc(100vw - 40px);
+  width: calc(100vw - 55px);
+  min-width: 400px;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -10,4 +11,30 @@
 .header__firstContainer {
   display: flex;
   align-items: center;
+}
+
+.auth {
+  display: flex;
+  column-gap: 10%;
+  width: 200px;
+  height: 100%;
+  align-items: center;
+}
+
+.auth__avatar {
+  margin-right: 10%;
+  max-width: 100px;
+  width: 30%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 100px;
+  box-shadow: 0 0 7px var(--card-text-color);
+}
+
+.auth__button {
+  width: 100%;
+  height: 30px;
+  color: var(--header-title-color);
+  font-weight: 600;
+  font-size: 1rem;
 }

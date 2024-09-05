@@ -1,4 +1,4 @@
-import { Post } from "../../types/common";
+import { Post } from "../../types/posts";
 
 import { PostsAction } from "../types/posts";
 
@@ -29,6 +29,7 @@ const postsReducer = (
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case FETCH_POSTS_SUCCESS:
       return {

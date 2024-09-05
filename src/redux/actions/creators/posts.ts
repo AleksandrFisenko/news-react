@@ -1,10 +1,9 @@
-import { Post } from "../../types/common";
-
+import { Post } from "../../../types/posts";
 import {
   FETCH_POSTS,
   FETCH_POSTS_FAILURE,
   FETCH_POSTS_SUCCESS,
-} from "./constants";
+} from "../constants";
 
 export const fetchPosts = () => ({ type: FETCH_POSTS });
 

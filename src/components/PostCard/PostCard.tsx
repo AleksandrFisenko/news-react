@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Tag } from "../../types/common";
+import { Tag } from "../../types/posts";
 import { formatDate } from "../../utils/dateUtils";
 import TagItem from "../TagItem";
 import placeholderImage from "../../images/ibs.png";
@@ -27,13 +27,13 @@ const PostCard = ({
   text,
   tags,
 }: PostCardProps) => {
-  const [isDetailsUnhidden, setDetails] = useState(false);
 
+  const [isDetailsVisible, setDetailsVisible] = useState(false);
   const changeDetails = () => {
-    setDetails((prevDetails) => !prevDetails);
+    setDetailsVisible((prevDetails) => !prevDetails);
   };
 
-  const cardTextClasses = isDetailsUnhidden
+  const cardTextClasses = isDetailsVisible
     ? classes.card__text
     : classes.card__text + " " + classes.card__text_hidden;
 

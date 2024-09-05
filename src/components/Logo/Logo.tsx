@@ -4,11 +4,11 @@ const Logo = () => {
   return (
     <>
       <img
-        src="./src/images/cat.svg"
+        src="./src/images/dice.svg"
         alt="Website Logo"
         className={classes.logo}
       />
-      <p className={classes.title}>NEWS</p>
+      <p className={classes.title}>DND NEWS</p>
     </>
   );
 };
