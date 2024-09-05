@@ -4,12 +4,13 @@ import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 import {
   fetchAuthProfile,
   outAuth,
-} from "../../redux/actions/creators/authActionCreators";
+} from "../../redux/actions/creators/auth";
 import placeholderAvatar from "../../images/avatar.png";
 import Logo from "../Logo";
+import { modalOpen } from "../../redux/actions/creators/modal";
+import { TOKEN } from "../../constants/keys";
 
 import classes from "./Header.module.css";
-import { modalOpen } from "../../redux/actions/creators/modalActionCreators";
 
 const Header = () => {
   const authData = useAppSelector((state) => state.auth.userData);
@@ -17,7 +18,7 @@ const Header = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem(TOKEN);
     if (token) {
       dispatch(fetchAuthProfile());
     }

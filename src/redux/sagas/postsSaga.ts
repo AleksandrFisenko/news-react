@@ -7,7 +7,7 @@ import { AxiosError, AxiosResponse } from "axios";
 
 import { Post } from "../../types/posts";
 
-import { fetchPostsFailure, fetchPostsSuccess } from "../actions/creators/postsActionCreators";
+import { fetchPostsFailure, fetchPostsSuccess } from "../actions/creators/posts";
 import { FETCH_POSTS } from "../actions/constants";
 import { getPosts } from "../../api/posts";
 

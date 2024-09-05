@@ -1,3 +1,4 @@
+import { TOKEN } from "../constants/keys";
 import {
   LoginRequest,
   LoginResponce,
@@ -12,14 +13,11 @@ export const auth = async (
   url: string
 ): Promise<Profile> => {
   const response = await api.post<LoginResponce>(`/auth/${url}`, data);
-  localStorage.setItem("token", response.data.token);
+  localStorage.setItem(TOKEN, response.data.token);
   return response.data.user;
 };
 
 export const getProfile = async (): Promise<Profile> => {
-  const token = localStorage.getItem("token");
-  const response = await api.get<Profile>("/auth/profile", {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const response = await api.get<Profile>("/auth/profile");
   return response.data;
 };

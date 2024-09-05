@@ -1,22 +1,27 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 
-import { style } from "../../constants/common";
-import { modalClose } from "../../redux/actions/creators/modalActionCreators";
+import { style } from "../../constants/mui";
+import { modalClose } from "../../redux/actions/creators/modal";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
-import { fetchAuthLogin } from "../../redux/actions/creators/authActionCreators";
+import { fetchAuthLogin } from "../../redux/actions/creators/auth";
 import { LoginRequest } from "../../types/auth";
 import { loginSchema } from "../../utils/authSchema";
 
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
-import { useForm } from "react-hook-form";
 
 const ModalLogin = () => {
-  const isOpen = useAppSelector((state) => state.modals.modalType === "login");
-
   const dispatch = useAppDispatch();
-  
+
+  const isOpen = useAppSelector((state) => state.modals.modalType === "login");
+  const error = useAppSelector((state) => state.auth.error);
+
   const close = () => {
     dispatch(modalClose());
+  };
+
+  const onSubmit = (loginData: LoginRequest) => {
+    dispatch(fetchAuthLogin(loginData));
   };
 
   const {
@@ -30,12 +35,6 @@ const ModalLogin = () => {
     },
     resolver: yupResolver(loginSchema),
   });
-
-  const onSubmit = (loginData: LoginRequest) => {
-    dispatch(fetchAuthLogin(loginData));
-  };
-
-  const error = useAppSelector((state) => state.auth.error);
 
   return (
     <Modal open={isOpen} onClose={close}>

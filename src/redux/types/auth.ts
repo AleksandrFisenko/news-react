@@ -6,9 +6,11 @@ import {
   OUT_AUTH,
 } from "../actions/constants";
 
+export type AuthPayload = RegisterRequest | LoginRequest | null;
+
 export interface FetchAuth {
   type: typeof FETCH_AUTH;
-  payload: RegisterRequest | LoginRequest | null;
+  payload: AuthPayload;
 }
 
 export interface OutAuthAction {

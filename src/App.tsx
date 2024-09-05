@@ -5,7 +5,7 @@ import ModalRegistration from "./components/Modal/ModalRegistration";
 import MainPage from "./pages/MainPage";
 import ModalLogin from "./components/Modal/ModalLogin";
 import { useAppDispatch, useAppSelector } from "./hooks/typedHooks";
-import { modalClose } from "./redux/actions/creators/modalActionCreators";
+import { modalClose } from "./redux/actions/creators/modal";
 
 const App = () => {
   const modalType = useAppSelector((state) => state.modals.modalType);

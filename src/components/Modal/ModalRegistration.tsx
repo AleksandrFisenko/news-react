@@ -1,24 +1,29 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-
-import { style } from "../../constants/common";
-import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
-import { modalClose } from "../../redux/actions/creators/modalActionCreators";
-import { fetchAuthRegistration } from "../../redux/actions/creators/authActionCreators";
-import { RegisterRequest } from "../../types/auth";
-
-import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
+
+import { style } from "../../constants/mui";
+import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
+import { modalClose } from "../../redux/actions/creators/modal";
+import { fetchAuthRegistration } from "../../redux/actions/creators/auth";
+import { RegisterRequest } from "../../types/auth";
 import { registrationSchema } from "../../utils/authSchema";
 
+import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+
 const ModalRegistration = () => {
+  const dispatch = useAppDispatch();
+
   const isOpen = useAppSelector(
     (state) => state.modals.modalType === "register"
   );
+  const error = useAppSelector((state) => state.auth.error);
 
-  const dispatch = useAppDispatch();
-  
   const close = () => {
     dispatch(modalClose());
+  };
+
+  const onSubmit = (registerData: RegisterRequest) => {
+    dispatch(fetchAuthRegistration(registerData));
   };
 
   const {
@@ -33,12 +38,6 @@ const ModalRegistration = () => {
     },
     resolver: yupResolver(registrationSchema),
   });
-
-  const onSubmit = (registerData: RegisterRequest) => {
-    dispatch(fetchAuthRegistration(registerData));
-  };
-
-  const error = useAppSelector((state) => state.auth.error);
 
   return (
     <Modal open={isOpen} onClose={close}>

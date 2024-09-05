@@ -3,10 +3,9 @@ import { AxiosError } from "axios";
 
 import { Profile } from "../../types/auth";
 import { auth, getProfile } from "../../api/auth";
-import {
-  fetchAuthFailure,
-  fetchAuthSuccess,
-} from "../actions/creators/authActionCreators";
+import { TOKEN } from "../../constants/keys";
+import isRegisterRequest from "../../utils/payloadGuard";
+import { fetchAuthFailure, fetchAuthSuccess } from "../actions/creators/auth";
 import { FETCH_AUTH, OUT_AUTH } from "../actions/constants";
 import { FetchAuth } from "../types/auth";
 
@@ -16,7 +15,7 @@ export function* watchRequestAuth() {
 }
 
 function* workerOutAuth() {
-  localStorage.removeItem("token");
+  localStorage.removeItem(TOKEN);
   yield;
 }
 
@@ -25,7 +24,7 @@ function* workerRequestAuth(action: FetchAuth) {
     let response: Profile;
     if (action.payload === null) {
       response = yield call(getProfile);
-    } else if ("login" in action.payload) {
+    } else if (isRegisterRequest(action.payload)) {
       response = yield call(auth, action.payload, "registration");
     } else {
       response = yield call(auth, action.payload, "login");
