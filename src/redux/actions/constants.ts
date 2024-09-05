@@ -9,3 +9,6 @@ export const OUT_AUTH = "OUT_AUTH"
 
 export const MODAL_OPEN = "MODAL_OPEN";
 export const MODAL_CLOSE = "MODAL_CLOSE";
+
+export const MODAL_TYPE_REGISTRATION = "MODAL_TYPE_REGISTRATION"
+export const MODAL_TYPE_LOGIN = "MODAL_TYPE_LOGIN"

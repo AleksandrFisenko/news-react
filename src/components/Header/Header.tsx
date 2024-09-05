@@ -1,19 +1,21 @@
 import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
-import {
-  fetchAuthProfile,
-  outAuth,
-} from "../../redux/actions/creators/auth";
+import { fetchAuthProfile, outAuth } from "../../redux/actions/creators/auth";
 import placeholderAvatar from "../../images/avatar.png";
 import Logo from "../Logo";
 import { modalOpen } from "../../redux/actions/creators/modal";
 import { TOKEN } from "../../constants/keys";
+import { selectAuthData } from "../../redux/selectors/auth";
+import {
+  MODAL_TYPE_LOGIN,
+  MODAL_TYPE_REGISTRATION,
+} from "../../redux/actions/constants";
 
 import classes from "./Header.module.css";
 
 const Header = () => {
-  const authData = useAppSelector((state) => state.auth.userData);
+  const authData = useAppSelector(selectAuthData);
 
   const dispatch = useAppDispatch();
 
@@ -25,11 +27,11 @@ const Header = () => {
   }, []);
 
   const openRegistration = () => {
-    dispatch(modalOpen("register"));
+    dispatch(modalOpen(MODAL_TYPE_REGISTRATION));
   };
 
   const openLogin = () => {
-    dispatch(modalOpen("login"));
+    dispatch(modalOpen(MODAL_TYPE_LOGIN));
   };
 
   const signOut = () => {

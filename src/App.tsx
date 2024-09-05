@@ -6,16 +6,20 @@ import MainPage from "./pages/MainPage";
 import ModalLogin from "./components/Modal/ModalLogin";
 import { useAppDispatch, useAppSelector } from "./hooks/typedHooks";
 import { modalClose } from "./redux/actions/creators/modal";
+import { selectModalType } from "./redux/selectors/modal";
+import {
+  MODAL_TYPE_LOGIN,
+  MODAL_TYPE_REGISTRATION,
+} from "./redux/actions/constants";
+import { selectAuthData } from "./redux/selectors/auth";
 
 const App = () => {
-  const modalType = useAppSelector((state) => state.modals.modalType);
+  const modalType = useAppSelector(selectModalType);
 
-  const isAuthenticated = useAppSelector(
-    (state) => state.auth.userData !== null
-  );
+  const isAuthenticated = useAppSelector(selectAuthData);
 
   const dispatch = useAppDispatch();
-  
+
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(modalClose());
@@ -26,8 +30,8 @@ const App = () => {
     <>
       <Header />
       <MainPage />
-      {modalType === "register" && <ModalRegistration />}
-      {modalType === "login" && <ModalLogin />}
+      {modalType === MODAL_TYPE_REGISTRATION && <ModalRegistration />}
+      {modalType === MODAL_TYPE_LOGIN && <ModalLogin />}
     </>
   );
 };
