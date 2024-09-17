@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Header from "./components/Header";
 import ModalRegistration from "./components/Modal/ModalRegistration";
@@ -12,6 +13,7 @@ import {
   MODAL_TYPE_REGISTRATION,
 } from "./redux/actions/constants";
 import { selectAuthData } from "./redux/selectors/auth";
+import UserPage from "./pages/UserPage";
 
 const App = () => {
   const modalType = useAppSelector(selectModalType);
@@ -26,10 +28,21 @@ const App = () => {
     }
   }, [isAuthenticated]);
 
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainPage />,
+    },
+    {
+      path: "/users/:id",
+      element: <UserPage />,
+    },
+  ]);
+
   return (
     <>
       <Header />
-      <MainPage />
+      <RouterProvider router={routes} />
       {modalType === MODAL_TYPE_REGISTRATION && <ModalRegistration />}
       {modalType === MODAL_TYPE_LOGIN && <ModalLogin />}
     </>
