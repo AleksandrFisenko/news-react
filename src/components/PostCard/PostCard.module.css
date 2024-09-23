@@ -1,7 +1,7 @@
 .card {
-  width: 80%;
+  width: 100%;
   min-width: 640px;
-  margin: 5%;
+  margin: 5% 0;
   box-shadow: 0 2px 4px var(--card-shadow-color);
   transition: transform 0.2s ease;
 }
@@ -36,10 +36,12 @@
 
 .card__author {
   display: flex;
-  width: fit-content;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   font-size: 1.5em;
   font-weight: 900;
+  text-align: center;
 }
 
 .card__email,
@@ -63,9 +65,11 @@
   color: var(--card-title-color);
 }
 
-.card__text {
+.card__text {  
+  width: 80%;
   font-size: 100%;
   color: var(--card-text-color);
+  word-wrap: break-word;
 }
 
 .card__text_hidden {

@@ -1,19 +1,17 @@
-import { PostWithoutUser, User, UserPage } from "../types/posts";
+import { Post, User } from "../types/posts";
+
 import api from "./axios";
 
-export const getUserPage = async (id: number): Promise<UserPage> => {
-  try {
-    const [userResponse, postsResponse] = await Promise.all([
-      api.get<User>(`/users/${id}`),
-      api.get<PostWithoutUser[]>(`/posts/user/${id}`),
-    ]);
+export const getUserById = async (id: number): Promise<User> => {
+  const user = await api.get<User>(`/users/${id}`);
+  return user.data;
+};
 
-    const userPage: UserPage = {
-      user: userResponse.data,
-      posts: postsResponse.data,
-    };
-    return userPage;
-  } catch (error) {
-    throw error;
-  }
+export const getPostsByUserId = async (id: number): Promise<Post[]> => {
+  const posts = await api.get<Post[]>(`/posts`, {
+    params: {
+      author: id,
+    },
+  });
+  return posts.data;
 };

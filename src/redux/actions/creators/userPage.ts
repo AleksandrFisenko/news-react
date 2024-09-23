@@ -1,4 +1,4 @@
-import { UserPage } from "../../../types/posts";
+import { User } from "../../../types/posts";
 import {
   FETCH_USER_PAGE,
   FETCH_USER_PAGE_FAILURE,
@@ -10,7 +10,7 @@ export const fetchUserPage = (id: number) => ({
   payload: id,
 });
 
-export const fetchUserPageSuccess = (userPage: UserPage) => ({
+export const fetchUserPageSuccess = (userPage: User) => ({
   type: FETCH_USER_PAGE_SUCCESS,
   payload: userPage,
 });

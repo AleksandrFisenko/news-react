@@ -1,4 +1,4 @@
-import { UserPage } from "../../types/posts";
+import { User } from "../../types/posts";
 import {
   FETCH_USER_PAGE,
   FETCH_USER_PAGE_FAILURE,
@@ -6,14 +6,14 @@ import {
 } from "../actions/constants";
 import { UserPageAction } from "../types/userPage";
 
-interface UaerPageState {
-  userPage: UserPage | null;
+interface UserPageState {
+  user: User | null;
   isLoading: boolean;
   error: string | null;
 }
 
-const initialState: UaerPageState = {
-  userPage: null,
+const initialState: UserPageState = {
+  user: null,
   isLoading: false,
   error: null,
 };
@@ -21,7 +21,7 @@ const initialState: UaerPageState = {
 const userPageReducer = (
   state = initialState,
   action: UserPageAction
-): UaerPageState => {
+): UserPageState => {
   switch (action.type) {
     case FETCH_USER_PAGE:
       return {
@@ -32,7 +32,7 @@ const userPageReducer = (
     case FETCH_USER_PAGE_SUCCESS:
       return {
         ...state,
-        userPage: action.payload,
+        user: action.payload,
         isLoading: false,
       };
     case FETCH_USER_PAGE_FAILURE:

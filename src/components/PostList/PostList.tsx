@@ -17,6 +17,7 @@ const PostList = ({ posts }: PostListProps) => {
           <PostCard
             key={post.id}
             imageUrl={post.imageUrl}
+            userId={post.user.id}
             email={post.user.email}
             avatarUrl={post.user.avatarUrl}
             updatedAt={post.updatedAt}

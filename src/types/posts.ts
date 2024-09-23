@@ -8,18 +8,9 @@ export interface Post {
   tags: Tag[];
 }
 
-export interface PostWithoutUser {
-  id: number;
-  title: string;
-  text: string;
-  imageUrl: string | null;
-  updatedAt: string;
-  tags: Tag[];
-}
-
 export interface UserPage {
   user: User;
-  posts: PostWithoutUser[];
+  posts: Post[];
 }
 
 export interface User {
