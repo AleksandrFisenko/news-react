@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import { Tag } from "../../types/posts";
 import { formatDate } from "../../utils/dateUtils";
 import placeholderImage from "../../images/ibs.png";
-import placeholderAvatar from "../../images/avatar.png";
 import TagItem from "../TagItem";
+import Avatar from "../Avatar";
 
 import classes from "./PostCard.module.css";
 
@@ -30,9 +30,9 @@ const PostCard = ({
   text,
   tags,
 }: PostCardProps) => {
-  const [isDetailsVisible, setDetailsVisible] = useState(false);
+  const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const changeDetails = () => {
-    setDetailsVisible((prevDetails) => !prevDetails);
+    setIsDetailsVisible((prevDetails) => !prevDetails);
   };
 
   const cardTextClasses = isDetailsVisible
@@ -49,9 +49,8 @@ const PostCard = ({
         />
         <div className={classes.card__texts}>
           <div className={classes.card__author}>
-            <img
-              src={avatarUrl ?? placeholderAvatar}
-              alt="User Avatar"
+            <Avatar
+              avatarUrl={avatarUrl}
               className={classes.card__avatar}
             />
             <NavLink to={`/users/${userId}`} className={classes.card__email}>

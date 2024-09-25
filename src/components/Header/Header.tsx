@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 import { fetchAuthProfile, outAuth } from "../../redux/actions/creators/auth";
-import placeholderAvatar from "../../images/avatar.png";
 import Logo from "../Logo";
 import { modalOpen } from "../../redux/actions/creators/modal";
 import { selectAuthData } from "../../redux/selectors/auth";
@@ -12,6 +11,7 @@ import {
   MODAL_TYPE_REGISTRATION,
 } from "../../redux/actions/constants";
 import { getToken } from "../../helpers/storage";
+import Avatar from "../Avatar";
 
 import classes from "./Header.module.css";
 
@@ -48,9 +48,8 @@ const Header = () => {
         {authData ? (
           <>
             <NavLink to={`/users/${authData.id}`} className={classes.ref}>
-              <img
-                src={authData.avatarUrl ?? placeholderAvatar}
-                alt="User Avatar"
+              <Avatar
+                avatarUrl={authData.avatarUrl}
                 className={classes.auth__avatar}
               />
             </NavLink>

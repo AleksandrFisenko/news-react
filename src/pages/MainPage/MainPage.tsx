@@ -24,11 +24,13 @@ const MainPage = () => {
     dispatch(fetchPosts());
   }, [dispatch]);
 
+  const isPosts = !isLoading && !error && !postsData.length;
+
   return (
     <div className={classes.page}>
       {isLoading && <Loading />}
       {error && <Error message={error} />}
-      {!isLoading && !error && !postsData.length && (
+      {isPosts && (
         <p className={classes.empty}>Постов нет.</p>
       )}
       <PostList posts={postsData} />

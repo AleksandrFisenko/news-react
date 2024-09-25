@@ -30,10 +30,14 @@ const UserPage = () => {
   const userError = useAppSelector(selectUserError);
   const postsError = useAppSelector(selectPostsError);
 
+  const isPosts = !isLoading && !postsError && !postsData.length;
+
+  const error = userError || postsError;
+
   return (
     <div className={classes.page}>
       {isLoading && <Loading />}
-      {!isLoading && !postsError && !postsData.length && (
+      {isPosts && (
         <p className={classes.empty}>Постов нет.</p>
       )}
       {userData && (
@@ -44,9 +48,8 @@ const UserPage = () => {
           createdAt={userData.createdAt}
         />
       )}
-      {userError && <Error message={userError} />}
+      {error && <Error message={error} />}
       {postsData && <PostList posts={postsData} />}
-      {!userError && postsError && <Error message={postsError} />}
     </div>
   );
 };

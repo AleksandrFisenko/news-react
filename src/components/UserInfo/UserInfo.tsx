@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import placeholderAvatar from "../../images/avatar.png";
 import { formatDate } from "../../utils/dateUtils";
+import Avatar from "../Avatar";
 
 import classes from "./UserInfo.module.css";
 
@@ -13,22 +13,21 @@ interface UserInfoProps {
 }
 
 const UserInfo = ({ email, login, avatarUrl, createdAt }: UserInfoProps) => {
-  const [isUserVisible, setUserVisible] = useState(true);
+  const [isUserVisible, setIsUserVisible] = useState(true);
 
-  const changeVisible = () => {
-    setUserVisible((prev) => !prev);
+  const changeVisibility = () => {
+    setIsUserVisible((prev) => !prev);
   };
 
   return (
     <>
-      <p onClick={changeVisible} className={classes.title}>
+      <p onClick={changeVisibility} className={classes.title}>
         Информация о пользователе.
       </p>
       {isUserVisible && (
         <div className={classes.container}>
-          <img
-            src={avatarUrl ?? placeholderAvatar}
-            alt="User Avatar"
+          <Avatar
+            avatarUrl={avatarUrl}
             className={classes.avatar}
           />
           <div className={classes.info}>
