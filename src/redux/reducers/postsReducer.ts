@@ -1,7 +1,5 @@
 import { Post } from "../../types/posts";
-
 import { PostsAction } from "../types/posts";
-
 import {
   FETCH_POSTS,
   FETCH_POSTS_FAILURE,
@@ -30,6 +28,7 @@ const postsReducer = (
         ...state,
         isLoading: true,
         error: null,
+        postList: [],
       };
     case FETCH_POSTS_SUCCESS:
       return {

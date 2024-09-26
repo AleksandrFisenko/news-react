@@ -14,7 +14,7 @@ export interface Profile {
   email: string;
   login: string;
   avatarUrl: string | null;
-  updatedAt: string;
+  createdAt: string;
 }
 
 export interface LoginResponce {

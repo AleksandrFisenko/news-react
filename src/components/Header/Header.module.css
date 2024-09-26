@@ -11,6 +11,7 @@
 .header__firstContainer {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .auth {
@@ -24,7 +25,7 @@
 .auth__avatar {
   margin-right: 10%;
   max-width: 100px;
-  width: 30%;
+  width: 80%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 100px;
@@ -37,4 +38,9 @@
   color: var(--header-title-color);
   font-weight: 600;
   font-size: 1rem;
+}
+
+.ref {
+  display: block;
+  width: 100%;
 }

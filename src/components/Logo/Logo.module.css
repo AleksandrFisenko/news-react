@@ -9,4 +9,5 @@
   font-weight: bold;
   color: var(--header-title-color);
   margin: 0;
+  user-select: none;
 }

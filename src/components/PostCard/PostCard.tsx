@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import { Tag } from "../../types/posts";
 import { formatDate } from "../../utils/dateUtils";
-import TagItem from "../TagItem";
 import placeholderImage from "../../images/ibs.png";
-import placeholderAvatar from "../../images/avatar.png";
+import TagItem from "../TagItem";
+import Avatar from "../Avatar";
 
 import classes from "./PostCard.module.css";
 
 interface PostCardProps {
   imageUrl: string | null;
+  userId: number;
   email: string;
   avatarUrl: string | null;
   updatedAt: string;
@@ -20,6 +22,7 @@ interface PostCardProps {
 
 const PostCard = ({
   imageUrl,
+  userId,
   email,
   avatarUrl,
   updatedAt,
@@ -27,10 +30,9 @@ const PostCard = ({
   text,
   tags,
 }: PostCardProps) => {
-
-  const [isDetailsVisible, setDetailsVisible] = useState(false);
+  const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const changeDetails = () => {
-    setDetailsVisible((prevDetails) => !prevDetails);
+    setIsDetailsVisible((prevDetails) => !prevDetails);
   };
 
   const cardTextClasses = isDetailsVisible
@@ -47,12 +49,13 @@ const PostCard = ({
         />
         <div className={classes.card__texts}>
           <div className={classes.card__author}>
-            <img
-              src={avatarUrl ?? placeholderAvatar}
-              alt="User Avatar"
+            <Avatar
+              avatarUrl={avatarUrl}
               className={classes.card__avatar}
             />
-            <p className={classes.card__email}>{email}</p>
+            <NavLink to={`/users/${userId}`} className={classes.card__email}>
+              {email}
+            </NavLink>
           </div>
           <p className={classes.card__date}>{formatDate(updatedAt)} </p>
           <p className={classes.card__title}>{title}</p>

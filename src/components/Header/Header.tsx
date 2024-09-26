@@ -1,16 +1,17 @@
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 import { fetchAuthProfile, outAuth } from "../../redux/actions/creators/auth";
-import placeholderAvatar from "../../images/avatar.png";
 import Logo from "../Logo";
 import { modalOpen } from "../../redux/actions/creators/modal";
-import { TOKEN } from "../../constants/keys";
 import { selectAuthData } from "../../redux/selectors/auth";
 import {
   MODAL_TYPE_LOGIN,
   MODAL_TYPE_REGISTRATION,
 } from "../../redux/actions/constants";
+import { getToken } from "../../helpers/storage";
+import Avatar from "../Avatar";
 
 import classes from "./Header.module.css";
 
@@ -20,7 +21,7 @@ const Header = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const token = localStorage.getItem(TOKEN);
+    const token = getToken();
     if (token) {
       dispatch(fetchAuthProfile());
     }
@@ -40,17 +41,18 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
-      <div className={classes.header__firstContainer}>
+      <NavLink to={"/"} className={classes.header__firstContainer}>
         <Logo />
-      </div>
+      </NavLink>
       <div className={classes.auth}>
         {authData ? (
           <>
-            <img
-              src={authData.avatarUrl ?? placeholderAvatar}
-              alt="User Avatar"
-              className={classes.auth__avatar}
-            />
+            <NavLink to={`/users/${authData.id}`} className={classes.ref}>
+              <Avatar
+                avatarUrl={authData.avatarUrl}
+                className={classes.auth__avatar}
+              />
+            </NavLink>
             <button className={classes.auth__button} onClick={signOut}>
               sign out
             </button>

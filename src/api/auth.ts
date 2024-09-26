@@ -1,4 +1,4 @@
-import { TOKEN } from "../constants/keys";
+import { setToken } from "../helpers/storage";
 import {
   LoginRequest,
   LoginResponce,
@@ -13,7 +13,7 @@ export const auth = async (
   url: string
 ): Promise<Profile> => {
   const response = await api.post<LoginResponce>(`/auth/${url}`, data);
-  localStorage.setItem(TOKEN, response.data.token);
+  setToken(response.data.token);
   return response.data.user;
 };
 

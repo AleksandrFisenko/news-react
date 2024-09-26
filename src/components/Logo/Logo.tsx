@@ -1,10 +1,12 @@
+import diceLogo from '../../images/dice.svg';
+
 import classes from "./Logo.module.css";
 
 const Logo = () => {
   return (
     <>
       <img
-        src="./src/images/dice.svg"
+        src={diceLogo}
         alt="Website Logo"
         className={classes.logo}
       />

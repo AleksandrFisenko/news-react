@@ -8,10 +8,17 @@ export interface Post {
   tags: Tag[];
 }
 
+export interface UserPage {
+  user: User;
+  posts: Post[];
+}
+
 export interface User {
   id: number;
   email: string;
+  login: string;
   avatarUrl: string | null;
+  createdAt: string;
 }
 
 export interface Tag {

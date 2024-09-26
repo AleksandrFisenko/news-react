@@ -14,7 +14,7 @@ import {
 import classes from "./MainPage.module.css";
 
 const MainPage = () => {
-  const posts = useAppSelector(selectPostsData);
+  const postsData = useAppSelector(selectPostsData);
   const isLoading = useAppSelector(selectPostsIsLoading);
   const error = useAppSelector(selectPostsError);
 
@@ -24,15 +24,17 @@ const MainPage = () => {
     dispatch(fetchPosts());
   }, [dispatch]);
 
+  const isPosts = !isLoading && !error && !postsData.length;
+
   return (
-    <>
+    <div className={classes.page}>
       {isLoading && <Loading />}
       {error && <Error message={error} />}
-      {!posts.length && !isLoading && (
+      {isPosts && (
         <p className={classes.empty}>Постов нет.</p>
       )}
-      <PostList posts={posts} />
-    </>
+      <PostList posts={postsData} />
+    </div>
   );
 };
 

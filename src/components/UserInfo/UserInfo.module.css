@@ -1,0 +1,29 @@
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  box-shadow: 0 2px 4px var(--card-shadow-color);
+  border-radius: 50px 50px 0 0;
+  user-select: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px var(--card-shadow-color);
+}
+
+.avatar {
+  width: 40%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.info {
+  width: 50%;
+  text-align: center;
+  margin-right: 5%;
+}
