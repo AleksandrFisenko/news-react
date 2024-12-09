@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 
-import { style } from "../../constants/mui";
+import { modal } from "../../constants/mui";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 import { modalClose } from "../../redux/actions/creators/modal";
 import { fetchAuthRegistration } from "../../redux/actions/creators/auth";
@@ -41,7 +41,7 @@ const ModalRegistration = () => {
   return (
     <Modal open={isOpen} onClose={close}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box sx={style}>
+        <Box sx={modal}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Registration
           </Typography>

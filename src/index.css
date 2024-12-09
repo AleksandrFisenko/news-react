@@ -26,6 +26,9 @@
 
   --modal-transparent-color: rgba(0, 0, 0, 0.4);
   --modal-content-color: rgba(92, 92, 92, 1);
+
+  --add-button-color: rgba(0, 123, 255, 1);
+  --add-button-color-hover: rgba(0, 86, 179, 1);
 }
 
 body {

@@ -25,3 +25,10 @@ export interface Tag {
   id: number;
   name: string;
 }
+
+export interface CreatePost { 
+  title: string;
+  text: string;
+  image: File;
+  tags: number[];
+}

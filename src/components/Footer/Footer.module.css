@@ -1,0 +1,26 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.add {
+  background-color: var(--add-button-color);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.add:hover {
+  background-color: var(--add-button-color-hover);
+  box-shadow: 0 0 7px var(--card-text-color);
+}
