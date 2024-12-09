@@ -1,11 +1,18 @@
 .empty {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   font-weight: 900;
   font-size: 5vw;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page {
-  margin: 0 5%;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  flex: 1;
 }

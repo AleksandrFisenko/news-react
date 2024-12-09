@@ -46,6 +46,7 @@ const PostCard = ({
           src={imageUrl ?? placeholderImage}
           alt="Post image"
           className={classes.card__image}
+          loading="lazy"
         />
         <div className={classes.card__texts}>
           <div className={classes.card__author}>

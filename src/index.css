@@ -14,7 +14,7 @@
   --error-text-color: rgba(179, 12, 12, 1);
 
   --header-shadow-color: rgba(0, 0, 0, 1);
-  --header-title-color: rgba(255, 255, 255, 1);
+  --header-title-color: rgb(255, 255, 255);
 
   --loading-zzz-color: rgba(0, 0, 0, 1);
   --loading-bigzzz-color: rgba(0, 0, 0, 1);
@@ -26,12 +26,32 @@
 
   --modal-transparent-color: rgba(0, 0, 0, 0.4);
   --modal-content-color: rgba(92, 92, 92, 1);
+
+  --add-button-color: rgba(0, 123, 255, 1);
+  --add-button-color-hover: rgba(0, 86, 179, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: top;
-  min-width: 320px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  background-color: rgba(36, 36, 36, 1);
+}
+
+#root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

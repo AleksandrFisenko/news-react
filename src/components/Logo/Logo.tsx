@@ -8,6 +8,7 @@ const Logo = () => {
       <img
         src={diceLogo}
         alt="Website Logo"
+        loading="lazy"
         className={classes.logo}
       />
       <p className={classes.title}>DND NEWS</p>

@@ -10,10 +10,13 @@ import { modalClose } from "./redux/actions/creators/modal";
 import { selectModalType } from "./redux/selectors/modal";
 import {
   MODAL_TYPE_LOGIN,
+  MODAL_TYPE_POST_CREATE,
   MODAL_TYPE_REGISTRATION,
 } from "./redux/actions/constants";
 import { selectAuthData } from "./redux/selectors/auth";
 import UserPage from "./pages/UserPage";
+import ModalCreatePost from "./components/Modal/ModalCreatePost";
+import Footer from "./components/Footer";
 
 const routes = createBrowserRouter([
   {
@@ -44,16 +47,18 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (isAuthenticated && modalType) {
+    if (isAuthenticated) {
       dispatch(modalClose());
     }
-  }, [isAuthenticated, modalType]);
+  }, [isAuthenticated]);
 
   return (
     <>
       <RouterProvider router={routes} />
       {modalType === MODAL_TYPE_REGISTRATION && <ModalRegistration />}
       {modalType === MODAL_TYPE_LOGIN && <ModalLogin />}
+      {modalType === MODAL_TYPE_POST_CREATE && <ModalCreatePost />}
+      {isAuthenticated && <Footer />}
     </>
   );
 };

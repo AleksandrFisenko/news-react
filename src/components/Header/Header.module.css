@@ -1,11 +1,11 @@
 .header {
-  width: calc(100vw - 55px);
-  min-width: 400px;
+  width: 100%;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 4px var(--header-shadow-color);
+  position: relative;
 }
 
 .header__firstContainer {
@@ -20,6 +20,8 @@
   width: 200px;
   height: 100%;
   align-items: center;
+  position: absolute;
+  right: 20px;
 }
 
 .auth__avatar {
@@ -36,8 +38,15 @@
   width: 100%;
   height: 30px;
   color: var(--header-title-color);
+  background-color: var(--add-button-color);
   font-weight: 600;
   font-size: 1rem;
+  border-radius: 10px;
+  border-style: none;
+}
+
+.auth__button:hover {
+  background-color: var(--add-button-color-hover);
 }
 
 .ref {

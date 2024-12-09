@@ -11,6 +11,7 @@ const Avatar = ({ avatarUrl, className }: AvatarProps) => {
       src={avatarUrl ?? placeholderAvatar}
       alt="User Avatar"
       className={className}
+      loading="lazy"
     />
   );
 };

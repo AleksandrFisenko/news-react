@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 
-import { style } from "../../constants/mui";
+import { input, modal } from "../../constants/mui";
 import { modalClose } from "../../redux/actions/creators/modal";
 import { useAppDispatch, useAppSelector } from "../../hooks/typedHooks";
 import { fetchAuthLogin } from "../../redux/actions/creators/auth";
@@ -40,7 +40,7 @@ const ModalLogin = () => {
   return (
     <Modal open={isOpen} onClose={close}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box sx={style}>
+        <Box sx={modal}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Authorization
           </Typography>
@@ -49,6 +49,7 @@ const ModalLogin = () => {
             label="email"
             variant="outlined"
             type="email"
+            sx={input}
             {...register("email")}
             error={!!errors.email}
             helperText={errors.email?.message}
@@ -58,6 +59,7 @@ const ModalLogin = () => {
             label="password"
             variant="outlined"
             type="password"
+            sx={input}
             {...register("password")}
             error={!!errors.password}
             helperText={errors.password?.message}
