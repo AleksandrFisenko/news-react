@@ -12,7 +12,7 @@ interface PostsState {
   error: string | null;
 }
 
-const initialState: PostsState = {
+export const initialState: PostsState = {
   postList: [],
   isLoading: false,
   error: null,

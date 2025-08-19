@@ -12,7 +12,7 @@ interface UserPageState {
   error: string | null;
 }
 
-const initialState: UserPageState = {
+export const initialState: UserPageState = {
   user: null,
   isLoading: false,
   error: null,

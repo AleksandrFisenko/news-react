@@ -14,6 +14,7 @@ import { getToken } from "../../helpers/storage";
 import Avatar from "../Avatar";
 
 import classes from "./Header.module.css";
+import Button from "../Button";
 
 const Header = () => {
   const authData = useAppSelector(selectAuthData);
@@ -53,18 +54,18 @@ const Header = () => {
                 className={classes.auth__avatar}
               />
             </NavLink>
-            <button className={classes.auth__button} onClick={signOut}>
+            <Button onClick={signOut}>
               sign out
-            </button>
+            </Button>
           </>
         ) : (
           <>
-            <button className={classes.auth__button} onClick={openRegistration}>
+            <Button onClick={openRegistration}>
               sign up
-            </button>
-            <button className={classes.auth__button} onClick={openLogin}>
+            </Button>
+            <Button onClick={openLogin}>
               sign in
-            </button>
+            </Button>
           </>
         )}
       </div>

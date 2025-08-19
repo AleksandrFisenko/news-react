@@ -28,6 +28,7 @@ const MainPage = () => {
 
   return (
     <div className={classes.page}>
+      <h1 className={classes.title}>Мои dnd новости</h1>
       {isLoading && <Loading />}
       {error && <Error message={error} />}
       {isPosts && (
