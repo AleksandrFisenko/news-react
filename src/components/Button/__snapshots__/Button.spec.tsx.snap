@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > should be render buttin 1`] = `
+<button
+  class="_button_0829c1 undefined"
+  type="button"
+>
+  АВЕ НЛМК
+</button>
+`;
+
+exports[`Button > should be render buttin 2`] = `
+<button
+  class="_button_0829c1 undefined"
+  type="button"
+>
+  АВЕ НЛМК
+</button>
+`;

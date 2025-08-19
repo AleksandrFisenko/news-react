@@ -6,7 +6,7 @@ interface ModalState {
   modalType: ModalType | null;
 }
 
-const initialState: ModalState = {
+export const initialState: ModalState = {
   isOpen: false,
   modalType: null,
 };
